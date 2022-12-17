@@ -9,7 +9,254 @@
 .blurEffect{
   backdrop-filter: blur(10px)
 }
+/* ================ */
 
+
+/* todo: Project Car Design */
+.cardBG{
+    background: linear-gradient(to top right, #fff, #043c80);
+}
+
+/* !===== END ===== */
+/* todo: Banner Profile Style */
+.profileBG{
+  background: linear-gradient(to top right, #ff3c78, #fcd71b);
+  border-end-start-radius: 50%;
+  /* border-end-end-radius: 50%; */
+  padding: 10px;
+}
+.profileBGMobile{
+    background: linear-gradient(to top right, #ff3c78, #fcd71b);
+  padding: 10px;
+}
+/* !===== END ===== */
+/* todo: Logo After and Before Effect */
+.logoStyle{
+  position: relative;
+}
+.logoStyle::before{
+  content: " ";
+  position: absolute;
+  background: linear-gradient(to left, #ff3c78, #fcd71b);
+  border-radius: 20px;
+  width: 0;
+  height: 3px;
+  right: 0;
+  top: 0;
+  transition: 0.5s;
+}
+.link:hover .logoStyle::before{
+  width: 50%;
+}
+.logoStyle::after{
+  content: " ";
+  position: absolute;
+  background: linear-gradient(to left, #ff3c78, #fcd71b);
+  border-radius: 20px;
+  width: 3px;
+  height: 0;
+  top: 0;
+  right: 0;
+  transition: 0.5s;
+}
+.link:hover .logoStyle::after{
+  height: 50%;
+}
+.logoStyle2::before{
+  content: " ";
+  position: absolute;
+  background: linear-gradient(to left, #ff3c78, #fcd71b);
+  border-radius: 20px;
+  width: 0;
+  height:3px;
+  left: 0;
+  bottom: 0;
+  transition: 0.5s;
+}
+.link:hover .logoStyle2::before{
+  width: 50%;
+}
+.logoStyle2::after{
+  content: " ";
+  position: absolute;
+  background: linear-gradient(to left, #ff3c78, #fcd71b);
+  border-radius: 20px;
+  width:3px;
+  height: 0;
+  bottom: 0;
+  left: 0;
+  transition: 0.5s;
+}
+.link:hover .logoStyle2::after{
+  height: 50%;
+}
+/* !===== END ===== */
+
+/* todo: Social Media Icon After and Before Effect */
+/* todo: Large Device */
+.icon{
+  position: relative;
+}
+.icon::after{
+    content: "";
+  position: absolute;
+  background: white;
+  border-radius: 20px;
+  height: 0;
+  width: 5px;
+  right: -10px;
+  bottom:0;
+  transition: 0.5s;
+}
+.icon:hover::after{
+  background: linear-gradient(to left, #ff3c78, #fcd71b);
+  height: 100%;
+}
+/* !=======>END<======== */
+/* todo: Small Device */
+.iconMobile{
+  position: relative;
+}
+.iconMobile::before{
+    content: "";
+  position: absolute;
+  
+  border-radius: 20px;
+  height: 0;
+  width: 5px;
+  left: -10px;
+  bottom:0;
+  transition: 0.5s;
+}
+.iconMobile:hover::before{
+  background: white;
+  height: 100%;
+}
+
+/* todo: Navbar hover effect */
+
+.nav{
+  position: relative;
+  padding: 0 10px;
+  color: #bebdbd;
+  letter-spacing: 0.5px;
+}
+.nav::after{
+  content: "";
+  position: absolute;
+  /* background: #ff3c78; */
+  background: linear-gradient(to left, #ff3d77,#fcd71b);
+  border-radius: 20px;
+  height: 3px;
+  width: 0;
+  left: 0;
+  bottom: -10px;
+  transition: 0.5s;
+}
+.nav:hover{
+  color: #fff;
+}
+.nav:hover::after{
+ width: 100%;
+}
+
+/* !=======>END<======== */
+
+/* todo: Banner text effect */
+
+.title{
+  animation-name: moveRight;
+  animation-duration: 0.7s;
+}
+.titleTwo{
+  animation-name: moveLeft;
+  animation-duration: 1s;
+}
+.titleThree{
+  animation-name: moveRight;
+  animation-duration: 1.3s;
+  color: #fbff00;
+  margin-bottom: 10px;
+}
+
+@keyframes moveRight {
+  0%{
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100%{
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes moveLeft {
+  0%{
+    opacity: 0;
+    transform: translateX(-150px);
+  }
+  100%{
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+/* !=======>END<======== */
+
+
+
+/*! === Button ====> */
+.button{
+  font-size: 16px;
+  /* border: 1px solid #fff; */
+  border-radius: 5px;
+  outline: none;
+  box-shadow: rgb(255, 60, 120) 0px 30px 60px -12px inset, rgb(252, 215, 27) 0px 18px 36px -18px inset;
+  background-color: #ff3c78;
+  color: #fff;
+  padding: 12px 25px;
+  position: relative;
+  transform: translateZ(0);
+  animation-name: moveUp;
+  animation-duration: 1s;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.button:hover{
+   color: #000;
+}
+.button::before{
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fbff00;
+  border-radius: 5px;
+  transform: scaleX(0);
+  transition: 300ms ease-out;
+}
+.button:hover::before{
+  transform: scaleX(1);
+}
+@keyframes moveUp {
+  0%{
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100%{
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+/* !=======>END<======== */
+
+
+
+
+/* !======THE END =========> */
 
 
 .App {
