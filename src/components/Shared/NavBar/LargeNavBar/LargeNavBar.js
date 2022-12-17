@@ -6,11 +6,12 @@ const LargeNavBar = () => {
 		<div>
 			<div className='navbar bg-transparent text-white'>
 				<div className='navbar-start'>
+				<Link className='nav flex' to='/'>
+				<img className='w-16 h-10 rounded-lg mt-2' src='FC.png' alt='' />
 					<a className='btn btn-ghost normal-case text-xl'>
-						<Link className='nav' to='/'>
 							Food Court
-						</Link>
-					</a>
+							</a>
+							</Link>
 				</div>
 				<div className='navbar-center hidden lg:flex'>
 					<Link className='ml-5 nav' to='/'>
