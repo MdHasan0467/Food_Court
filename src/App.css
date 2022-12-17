@@ -1,3 +1,17 @@
+
+.bgBanner{
+  background-image: url('../public/bgBanner.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+ backdrop-filter: blur(10px)
+}
+.blurEffect{
+  backdrop-filter: blur(10px)
+}
+
+
+
 .App {
   text-align: center;
 }
