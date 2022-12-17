@@ -3,7 +3,8 @@
 ### Installations:
 1. Tailwindcss
 2. Daisy ui
-3. 
+3. React router dom
+4. 
 
 
 
@@ -13,6 +14,7 @@
 
 ### Steps:
 1. Tailwindcss & daisy ui installation
+2. Route Setup
 
 
 
