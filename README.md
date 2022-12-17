@@ -1,3 +1,24 @@
+
+
+### Installations:
+1. Tailwindcss
+2. Daisy ui
+3. 
+
+
+
+
+
+
+
+### Steps:
+1. Tailwindcss & daisy ui installation
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
