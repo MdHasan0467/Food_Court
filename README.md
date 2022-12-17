@@ -15,7 +15,8 @@
 ### Steps:
 1. Tailwindcss & daisy ui installation
 2. Route Setup
-
+3. Main route & Navbar basic setup
+4. Banner added
 
 
 
