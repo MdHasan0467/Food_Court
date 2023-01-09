@@ -5,27 +5,29 @@ const LargeNavBar = () => {
 	return (
 		<div>
 			<div className='navbar bg-transparent text-white'>
-				<div className='navbar-start'>
+				<div className='navbar-start group'>
 				<Link className='nav flex' to='/'>
 				<img className='w-16 h-10 rounded-lg mt-2' src='FC.png' alt='' />
-					<a className='btn btn-ghost normal-case text-xl'>
-							Food Court
-							</a>
-							</Link>
+					<h3 className=' flex items-center mx-5 text-xl group-hover:text-gray-800 font-semibold font-serif'>
+						Food Court
+					</h3>
+				</Link>
 				</div>
 				<div className='navbar-center hidden lg:flex'>
-					<Link className='ml-5 nav' to='/'>
+					<Link className='ml-5 nav hover:text-gray-800' to='/'>
 						Home
 					</Link>
-					<Link className='ml-5 nav' to='/addproduct'>
+					<Link className='ml-5 nav hover:text-gray-800' to='/add-product'>
 						Add Product
 					</Link>
-					<Link className='ml-5 nav' to='/about'>
+					<Link className='ml-5 nav hover:text-gray-800' to='/about'>
 						About
 					</Link>
 				</div>
-				<div className='navbar-end'>
-					<a className='btn'>Login</a>
+				<div className='navbar-end flex'>
+				<Link className='btn mx-1' to='/login'>Login</Link>
+							
+				<Link className='btn mx-1' to='/register'>Register</Link>
 				</div>
 			</div>
 		</div>

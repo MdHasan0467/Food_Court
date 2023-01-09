@@ -153,9 +153,7 @@
   bottom: -10px;
   transition: 0.5s;
 }
-.nav:hover{
-  color: #fff;
-}
+
 .nav:hover::after{
  width: 100%;
 }
