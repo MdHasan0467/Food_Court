@@ -1,7 +1,70 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
 
 const Registration = () => {
+
+  const { createUser} = useContext(AuthContext)
+
+const navigate = useNavigate()
+
+
+
+
+
+  const handleRegister = e => {
+    e.preventDefault()
+
+
+    const form = e.target;
+    
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    
+
+
+
+
+
+
+    createUser(email, password)
+      .then(result => {
+        const user = result.user;
+        navigate('/login')
+        form.reset()
+        alert('Registration successful')
+      })
+      .catch(err => console.error(err));
+    
+
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+    
+
+
+
+  }
+
+
+
+
+
+
+
+
     return (
         <div>
         <div className="hero min-h-screen bg-base-200">
@@ -11,8 +74,9 @@ const Registration = () => {
             <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <div className="card-body">
-            <form>
+              <div className="card-body">
+              <h3 className='font-serif text-2xl'>Register Here</h3>
+            <form onSubmit={handleRegister}>
             <div className="form-control">
                 <label className="label">
                   <span className="label-text">Full Name</span>
@@ -35,7 +99,7 @@ const Registration = () => {
               </div>
               
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Register</button>
+                <button className="btn bg-gradient-to-r from-violet-500 to-fuchsia-500 bg-gradient-to-l hover:bg-gradient-to-r border-0">Register</button>
                </div>
             </form>
                

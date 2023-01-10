@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import LargeNavBar from '../../Shared/NavBar/LargeNavBar/LargeNavBar';
+import LargeNavBar from '../../../Shared/NavBar/LargeNavBar/LargeNavBar';
 
 
 

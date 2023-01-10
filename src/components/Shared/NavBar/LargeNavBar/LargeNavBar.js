@@ -25,9 +25,9 @@ const LargeNavBar = () => {
 					</Link>
 				</div>
 				<div className='navbar-end flex'>
-				<Link className='btn mx-1' to='/login'>Login</Link>
+				<Link className='btn bg-gradient-to-r from-violet-500 to-fuchsia-500 border-0 bg-gradient-to-l hover:bg-gradient-to-r mx-1' to='/login'>Login</Link>
 							
-				<Link className='btn mx-1' to='/register'>Register</Link>
+				<Link className='btn bg-gradient-to-r from-violet-500 to-fuchsia-500 border-0 bg-gradient-to-l hover:bg-gradient-to-r mx-1' to='/register'>Register</Link>
 				</div>
 			</div>
 		</div>

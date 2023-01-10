@@ -6,8 +6,8 @@ import CategoryDetails from '../../Pages/CategoryDetails/CategoryDetails';
 import Login from '../../Pages/Form/Login/Login';
 import Registration from '../../Pages/Form/Registration/Registration';
 import Home from '../../Pages/Home/Home';
-import Main from '../Main/Main';
-import Others from '../Others/Others';
+import Main from '../Layouts/Main/Main';
+import Others from '../Layouts/Others/Others';
 
 const Route = () => {
     const router = createBrowserRouter([
