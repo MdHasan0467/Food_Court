@@ -24,13 +24,18 @@ const Login = () => {
 
    
 
-    // signIn(email, password)
-    //   .then(result => {
-    //     const user = result.user;
+    //! login By User Email
+		signIn(email, password)
+      .then(() => {
+      
+      navigate('/')
 
-    //     navigate('/');
-    //   })
-    // .catch(err => console.error(err))
+      alert('success login');
+      })
+      
+    .catch((error) => {
+      alert(error.message);
+    });
 
 
 

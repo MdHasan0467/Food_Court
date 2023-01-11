@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const BannerNavBar = () => {
+
+    //User
+	const {user} = useContext(AuthContext)
+
+
+
+
     return (
         <div>
         <div className='navbar bg-transparent text-white py-5'>
@@ -25,9 +33,15 @@ const BannerNavBar = () => {
             </Link>
         </div>
         <div className='navbar-end flex'>
+        {user?.uid ?
+        <p>{user?.email}</p>
+        :
+        <>
         <Link className='btn bg-gradient-to-l from-violet-500 to-fuchsia-500 hover:bg-gradient-to-r border-0 mx-1' to='/login'>Login</Link>
                     
 		<Link className='btn bg-gradient-to-l from-violet-500 to-fuchsia-500 hover:bg-gradient-to-r border-0 mx-1' to='/register'>Register</Link>
+        </>
+        }
         </div>
     </div>
         </div>

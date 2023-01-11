@@ -7,6 +7,14 @@ import BannerNavBar from '../../../Shared/BannerNavBar/BannerNavBar';
 
 
 const Banner = () => {
+
+
+	
+
+
+
+
+
     return (
 			<div>
 			<div className='bgBanner min-h-[50vh]'>
@@ -27,16 +35,16 @@ const Banner = () => {
 
 								<div className='text-content mt-7 pb-2'>
 									<h1 className='text-start ml-[20%] flex'>
-										<h3 className='text-4xl'>F</h3>
-										<h2 className='mt-1'>
-											<h5 className='ml-1'>
+										<span className='text-4xl'>F</span>
+										<span className='mt-1'>
+											<span className='ml-1'>
 												ood is a major part of basic human needs.
-											</h5>
-											<h5>
+											</span>
+											<span>
 												Everyone loves to eat. And there is no such thing as a
 												food lover.
-											</h5>
-										</h2>
+											</span>
+										</span>
 									</h1>
 									<h1 className='text-start ml-[20%] mt-3'>
 										If you are a food lover and want to eat different items,
