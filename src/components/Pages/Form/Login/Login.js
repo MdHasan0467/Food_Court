@@ -66,7 +66,7 @@ const Login = () => {
                 </label>
                 <input type="text" name='password' placeholder="password" className="input input-bordered" />
                 <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                  <p  className="label-text-alt link link-hover hover:underline text-start">Forgot password?</p>
                 </label>
               </div>
               
@@ -77,9 +77,9 @@ const Login = () => {
             </form>
                
               <label className="label">
-               <a href="#" className="label-text-alt link link-hover">
+               <p  className="label-text-alt link link-hover hover:underline text-start">
                    <Link to='/register'>create a new account</Link>
-               </a>
+               </p>
               </label>
              </div>
           </div>

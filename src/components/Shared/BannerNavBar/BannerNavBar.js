@@ -1,11 +1,34 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const BannerNavBar = () => {
 
-    //User
-	const {user} = useContext(AuthContext)
+    //!  Current User
+    const { user, logOut } = useContext(AuthContext)
+
+
+
+    
+    //! Navigate
+    const navigate = useNavigate()
+
+
+
+
+
+
+
+    //!  Logout
+    const handleLogOut = () => {
+        logOut()
+        navigate('/login')
+        alert('LogOut')
+    }
+
+
+
+
 
 
 
@@ -34,7 +57,11 @@ const BannerNavBar = () => {
         </div>
         <div className='navbar-end flex'>
         {user?.uid ?
+        <>
         <p>{user?.email}</p>
+        
+        <button onClick={handleLogOut} className='btn bg-gradient-to-l from-violet-500 to-fuchsia-500 hover:bg-gradient-to-r border-0 mx-1'>Log Out</button>
+        </>
         :
         <>
         <Link className='btn bg-gradient-to-l from-violet-500 to-fuchsia-500 hover:bg-gradient-to-r border-0 mx-1' to='/login'>Login</Link>
