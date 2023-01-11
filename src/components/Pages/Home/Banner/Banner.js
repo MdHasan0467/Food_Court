@@ -1,6 +1,6 @@
 import React from 'react';
 import BannerNavBar from '../../../Shared/BannerNavBar/BannerNavBar';
-
+import AutoTyping, { BlinkCursor } from 'react-auto-typing'
 
 
 
@@ -28,8 +28,24 @@ const Banner = () => {
 									<h2 className='text-start ml-[20%] py-2 text-3xl'>
 										Welcome To Our
 									</h2>
+																	
+
+								
 									<h2 className='text-start ml-[20%] py-2 text-4xl'>
-										Food Court Restaurant
+									<>
+									<AutoTyping
+									  active // <boolean>
+									  textRef='Food Court Restaurant' // <string>
+									  writeSpeed={150} // <number>
+									  deleteSpeed={150} // <number>
+									  delayToWrite={1000} // <number>
+									  delayToDelete={2000} // <number>
+									/>
+									<BlinkCursor
+									  active // <boolean>
+									  blinkSpeed={500} // <number>
+									/>
+								  </>
 									</h2>
 								</div>
 
@@ -50,7 +66,8 @@ const Banner = () => {
 										If you are a food lover and want to eat different items,
 										then Food Court is offering you both Bengali and
 										international most popular food items.
-									</h1>
+								</h1>
+
 								</div>
 							</div>
 						</div>

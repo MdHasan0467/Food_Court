@@ -58,7 +58,7 @@ const BannerNavBar = () => {
         <div className='navbar-end flex'>
         {user?.uid ?
         <>
-        <p>{user?.email}</p>
+        <p className='text-yellow-400 mx-2 text-3xl'>{user?.email}</p>
         
         <button onClick={handleLogOut} className='btn bg-gradient-to-l from-violet-500 to-fuchsia-500 hover:bg-gradient-to-r border-0 mx-1'>Log Out</button>
         </>

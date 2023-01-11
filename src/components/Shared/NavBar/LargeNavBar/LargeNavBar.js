@@ -1,7 +1,34 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
 
 const LargeNavBar = () => {
+
+
+	    //!  Current User
+		const { user, logOut } = useContext(AuthContext)
+
+
+
+
+
+    
+    //! Navigate
+    const navigate = useNavigate()
+
+
+
+
+
+
+
+    //!  Logout
+    const handleLogOut = () => {
+        logOut()
+        navigate('/login')
+        alert('LogOut')
+    }
+
 	return (
 		<div>
 			<div className='navbar bg-transparent text-white'>
@@ -25,9 +52,19 @@ const LargeNavBar = () => {
 					</Link>
 				</div>
 				<div className='navbar-end flex'>
-				<Link className='btn bg-gradient-to-r from-violet-500 to-fuchsia-500 border-0 bg-gradient-to-l hover:bg-gradient-to-r mx-1' to='/login'>Login</Link>
-							
-				<Link className='btn bg-gradient-to-r from-violet-500 to-fuchsia-500 border-0 bg-gradient-to-l hover:bg-gradient-to-r mx-1' to='/register'>Register</Link>
+				{user?.uid ?
+					<>
+					<p className='text-yellow-400 mx-2 text-3xl'>{user?.email}</p>
+					
+					<button onClick={handleLogOut} className='btn bg-gradient-to-l from-violet-500 to-fuchsia-500 hover:bg-gradient-to-r border-0 mx-1'>Log Out</button>
+					</>
+					:
+					<>
+					<Link className='btn bg-gradient-to-l from-violet-500 to-fuchsia-500 hover:bg-gradient-to-r border-0 mx-1' to='/login'>Login</Link>
+								
+					<Link className='btn bg-gradient-to-l from-violet-500 to-fuchsia-500 hover:bg-gradient-to-r border-0 mx-1' to='/register'>Register</Link>
+					</>
+					}
 				</div>
 			</div>
 		</div>
