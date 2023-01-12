@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
+import Loader from '../../../Shared/Loader/Loader';
 
 const Registration = () => {
 
-  const { createUser} = useContext(AuthContext)
+  const { createUser, loading} = useContext(AuthContext)
 
 const navigate = useNavigate()
 
@@ -60,6 +61,11 @@ const navigate = useNavigate()
 
 
 
+
+      //! Loding . . .
+      if (loading) {
+        <Loader></Loader>
+    }
 
 
 

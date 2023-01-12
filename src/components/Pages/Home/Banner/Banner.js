@@ -32,7 +32,7 @@ const Banner = () => {
 
 								
 									<h2 className='text-start ml-[20%] py-2 text-4xl'>
-									<>
+									
 									<AutoTyping
 									  active // <boolean>
 									  textRef='Food Court Restaurant' // <string>
@@ -45,7 +45,7 @@ const Banner = () => {
 									  active // <boolean>
 									  blinkSpeed={500} // <number>
 									/>
-								  </>
+								  
 									</h2>
 								</div>
 

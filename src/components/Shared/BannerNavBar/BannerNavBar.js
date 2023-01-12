@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import Button from '../Button/Button';
 
 const BannerNavBar = () => {
 
@@ -51,6 +52,9 @@ const BannerNavBar = () => {
             <Link className='ml-5 nav hover:text-white' to='/add-product'>
                 Add Product
             </Link>
+            <Link className='ml-5 nav hover:text-white' to='/faq'>
+			FAQ
+			</Link>
             <Link className='ml-5 nav hover:text-white' to='/about'>
                 About
             </Link>
@@ -60,7 +64,9 @@ const BannerNavBar = () => {
         <>
         <p className='text-yellow-400 mx-2 text-3xl'>{user?.email}</p>
         
-        <button onClick={handleLogOut} className='btn bg-gradient-to-l from-violet-500 to-fuchsia-500 hover:bg-gradient-to-r border-0 mx-1'>Log Out</button>
+        
+        
+       <Button>LogOut</Button>
         </>
         :
         <>
