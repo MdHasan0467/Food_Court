@@ -7,8 +7,8 @@ import AutoTyping, { BlinkCursor } from 'react-auto-typing'
 
 const FAQ = () => {
     return (
-        <div className='bg-blue-900 min-h-screen'>
-            <div className='flex justify-center font-bold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600'>
+        <div className='bg-base-200 min-h-screen'>
+            <div className='flex justify-center py-[20%] font-bold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600'>
             <AutoTyping
             active // <boolean>
             textRef='FAQ Section Coming Soon . . .' // <string>

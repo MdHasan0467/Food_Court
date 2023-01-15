@@ -60,13 +60,19 @@ const LargeNavBar = () => {
 					<>
 					<p className='text-yellow-400 mx-2 text-3xl'>{user?.email}</p>
 					
-					<Button>LogOut</Button>
+					<div onClick={handleLogOut}>
+                    <Button>LogOut</Button>
+                    </div>
 					</>
 					:
 					<>
-					<Link className='btn bg-gradient-to-l from-violet-500 to-fuchsia-500 hover:bg-gradient-to-r border-0 mx-1' to='/login'>Login</Link>
-								
-					<Link className='btn bg-gradient-to-l from-violet-500 to-fuchsia-500 hover:bg-gradient-to-r border-0 mx-1' to='/register'>Register</Link>
+					<Link className="mx-1" to='/login'>
+                    <Button>Login</Button>
+                    </Link>
+                                
+		            <Link className="mx-1" to='/register'>
+                    <Button>Register</Button>
+                    </Link>
 					</>
 					}
 				</div>

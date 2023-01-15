@@ -37,12 +37,12 @@ const Route = () => {
             
                
                 {
-                    path: '/category-details',
+                    path: '/:category',
                     element: <PrivateRoute><CategoryDetails></CategoryDetails></PrivateRoute>
                 },
                 {
                     path: '/add-product',
-                    element:<PrivateRoute><AddProduct></AddProduct></PrivateRoute>
+                    element:<AddProduct></AddProduct>
                 },
                 {
                     path: '/login',

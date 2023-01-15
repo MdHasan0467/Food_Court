@@ -29,7 +29,6 @@ const Banner = () => {
 										Welcome To Our
 									</h2>
 																	
-
 								
 									<h2 className='text-start ml-[20%] py-2 text-4xl'>
 									
@@ -49,6 +48,9 @@ const Banner = () => {
 									</h2>
 								</div>
 
+							
+							
+							
 								<div className='text-content mt-7 pb-2'>
 									<h1 className='text-start ml-[20%] flex'>
 										<span className='text-4xl'>F</span>
@@ -68,10 +70,20 @@ const Banner = () => {
 										international most popular food items.
 								</h1>
 
-								</div>
 							</div>
-						</div>
-						<div className=''></div>
+							
+
+
+
+
+							</div>
+					</div>
+					
+
+					<div className=''></div>
+					
+
+					
 					</div>
 				</div>
 			</div>
