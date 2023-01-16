@@ -2,17 +2,18 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import Button from '../Button/Button';
+import LargeButton from '../LargeButton/LargeButton';
 
 const BannerNavBar = () => {
 
     //!  Current User
-    const { user, logOut } = useContext(AuthContext)
+    const { user, logOut, logUser } = useContext(AuthContext);
 
 
 
     
     //! Navigate
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
 
 
@@ -22,10 +23,19 @@ const BannerNavBar = () => {
 
     //!  Logout
     const handleLogOut = () => {
-        logOut()
-        navigate('/login')
-        alert('LogOut')
+        logOut();
+        navigate('/login');
+        alert('LogOut');
     }
+
+
+
+
+
+
+
+
+  
 
 
 
@@ -53,8 +63,9 @@ const BannerNavBar = () => {
                 Add Product
             </Link>
             <Link className='ml-5 nav hover:text-white' to='/faq'>
-			FAQ
-			</Link>
+			      FAQ
+            </Link>
+            
             <Link className='ml-5 nav hover:text-white' to='/about'>
                 About
             </Link>
@@ -62,13 +73,27 @@ const BannerNavBar = () => {
         <div className='navbar-end flex'>
         {user?.uid ?
         <>
-        <p className='text-yellow-400 mx-2 text-3xl'>{user?.email}</p>
-        
-        
-        
-       <div onClick={handleLogOut}>
-       <Button>LogOut</Button>
-       </div>
+        <div className="dropdown dropdown-end">
+        <label tabIndex={0} className="btn btn-ghost btn-circle avatar online">
+          <div className="w-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+            <img className=""  src={logUser?.image} />
+          </div>
+        </label>
+        <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+          <li>
+            <h2 className="justify-between bg-gradient-to-l from-yellow-500 to-fuchsia-500 border-0 rounded-xl">
+              {logUser?.name}
+              <span className="badge bg-gradient-to-l to-violet-500 from-fuchsia-500 border-0">{logUser?.role}</span>
+            </h2>
+          </li>
+          <li>
+          <LargeButton>Setting</LargeButton>
+          </li>
+          <li onClick={handleLogOut}>
+          <LargeButton>LogOut</LargeButton>
+          </li>
+        </ul>
+      </div>
         </>
         :
         <>
@@ -76,7 +101,7 @@ const BannerNavBar = () => {
         <Button>Login</Button>
         </Link>
                     
-		<Link className="mx-1" to='/register'>
+        <Link className="mx-1" to='/register'>
         <Button>Register</Button>
         </Link>
         </>
