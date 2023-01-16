@@ -14,7 +14,7 @@ const Button = ({children}) => {
         <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out px-6 py-4 -translate-x-full translate-y-full bg-gradient-to-l from-yellow-500 to-fuchsia-500 border-0 rounded-xl group-hover:mb-12 group-hover:translate-x-0">
         </span>
         
-        <Link  className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-white font-semibold">
+        <Link className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-white font-semibold">
         
         {children} 
         

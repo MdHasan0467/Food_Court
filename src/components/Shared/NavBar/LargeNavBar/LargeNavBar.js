@@ -2,12 +2,13 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
 import Button from '../../Button/Button';
+import LargeButton from '../../LargeButton/LargeButton';
 
 const LargeNavBar = () => {
 
 
 	    //!  Current User
-		const { user, logOut } = useContext(AuthContext)
+		const { user, logOut, logUser } = useContext(AuthContext)
 
 
 
@@ -56,26 +57,42 @@ const LargeNavBar = () => {
 					</Link>
 				</div>
 				<div className='navbar-end flex'>
-				{user?.uid ?
-					<>
-					<p className='text-yellow-400 mx-2 text-3xl'>{user?.email}</p>
-					
-					<div onClick={handleLogOut}>
-                    <Button>LogOut</Button>
-                    </div>
-					</>
-					:
-					<>
-					<Link className="mx-1" to='/login'>
-                    <Button>Login</Button>
-                    </Link>
-                                
-		            <Link className="mx-1" to='/register'>
-                    <Button>Register</Button>
-                    </Link>
-					</>
-					}
-				</div>
+        {user?.uid ?
+        <>
+        <div className="dropdown dropdown-end">
+        <label tabIndex={0} className="btn btn-ghost btn-circle avatar online">
+          <div className="w-16 flex items-center rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+            <img className=""  src={logUser?.image} />
+          </div>
+        </label>
+        <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+          <li>
+            <h2 className="justify-between bg-gradient-to-l from-yellow-500 to-fuchsia-500 border-0 rounded-xl">
+              {logUser?.name}
+              <span className="badge bg-gradient-to-l to-violet-500 from-fuchsia-500 border-0">{logUser?.role}</span>
+            </h2>
+          </li>
+          <li>
+          <LargeButton>Dashboard</LargeButton>
+          </li>
+          <li onClick={handleLogOut}>
+          <LargeButton>LogOut</LargeButton>
+          </li>
+        </ul>
+      </div>
+        </>
+        :
+        <>
+        <Link className="mx-1" to='/login'>
+        <Button>Login</Button>
+        </Link>
+                    
+        <Link className="mx-1" to='/register'>
+        <Button>Register</Button>
+        </Link>
+        </>
+        }
+        </div>
 			</div>
 		</div>
 	);

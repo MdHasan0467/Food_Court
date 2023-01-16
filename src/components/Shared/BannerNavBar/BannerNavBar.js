@@ -87,7 +87,7 @@ const BannerNavBar = () => {
             </h2>
           </li>
           <li>
-          <LargeButton>Setting</LargeButton>
+          <LargeButton>Dashboard</LargeButton>
           </li>
           <li onClick={handleLogOut}>
           <LargeButton>LogOut</LargeButton>

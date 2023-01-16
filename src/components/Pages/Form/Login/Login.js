@@ -34,7 +34,7 @@ const Login = () => {
       })
       
     .catch((error) => {
-      alert(error.message);
+      alert('Something is wrong! Please Check and Try again');
     });
 
 

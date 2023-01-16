@@ -17,22 +17,27 @@ const PrivateRoute = ({children}) => {
 
 
     // //! Loding . . .
-    // if (loading) {
-    //     return <Loader></Loader>
-    // }
-
-
-
-
-
-
-    //! If user here . . . 
-    if (user && user.uid) {
-        return children
+	
+	
+	if (loading) {
+		return <Loader></Loader>
     }
-    return <Navigate to='/login' state={{ from: location }} replace > </Navigate>
+    
 
 
+
+
+
+
+
+
+    
+
+		if (user && user.uid) {
+			return children;
+		}
+		return <Navigate to='/login' state={{ from: location }} replace > </Navigate>
+      
 };
 
 export default PrivateRoute;

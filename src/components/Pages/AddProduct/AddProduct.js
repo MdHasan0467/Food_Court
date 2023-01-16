@@ -5,8 +5,8 @@ import Loader from '../../Shared/Loader/Loader';
 
 const AddProduct = () => {
 
-	const { user, loading } = useContext(AuthContext);
-	// console.log(logUser[0].permission);
+	const { user, loading, logUser } = useContext(AuthContext);
+	console.log(logUser.name);
 
 
 
@@ -100,7 +100,7 @@ const AddProduct = () => {
 									console.log(imgData2.data.url)
 	
 									const addedProduct = {
-										author: user.displayName,
+										author: logUser.name,
 										email: user.email,
 										title: data.title,
 										category: data.category,
@@ -135,7 +135,7 @@ const AddProduct = () => {
 					}
 					else {
 						const addedProduct = {
-							author: user.displayName,
+							author: logUser.name,
 							email: user.email,
 							title: data.title,
 							category: data.category,
@@ -172,7 +172,7 @@ const AddProduct = () => {
 					}
 					else {
 						const addedProduct = {
-							author: user.displayName,
+							author: logUser.name,
 							email: user.email,
 							title: data.title,
 							category: data.category,
@@ -226,7 +226,7 @@ const AddProduct = () => {
 							onSubmit={handleSubmit(handleAddedProduct)}
 							className='card-body'
 						>
-							<div className='grid grid-cols-1 lg:grid-cols-2 gap-3'>
+							
 								<div className='form-control w-full max-w-xs'>
 									<label className='label'>
 										<span className='label-text'>Product Title</span>
@@ -242,15 +242,8 @@ const AddProduct = () => {
 										<p className='text-red-500'>{errors.title?.message}</p>
 									)}
 								</div>
-								<div className='form-control  w-full max-w-xs'>
-									<p className='text-semibold font-serif text-blue-600'>
-										Name : {user?.displayName}
-									</p>
-									<p className='text-semibold font-serif text-blue-600'>
-										{user?.email}
-									</p>
-								</div>
-							</div>
+								
+							
 							
 								
 								<div className='form-control w-full max-w-xs'>
@@ -259,10 +252,11 @@ const AddProduct = () => {
 									</label>
 									<select
 										{...register('category', {
-											required: true,
+											required: 'Category is Required',
 										})}
 										className='select input-bordered w-full max-w-xs'
 									>
+										<option disabled>Choose Category</option>
 										<option>Chinese</option>
 										<option>Drinks</option>
 										<option>Rice</option>
@@ -282,7 +276,7 @@ const AddProduct = () => {
 									<input
 										type='number'
 										{...register('price', {
-											
+											required: 'Price is Required',
 										})}
 										className='input input-bordered w-full max-w-xs'
 									/>
@@ -301,7 +295,7 @@ const AddProduct = () => {
 								<input
 									type='text'
 									{...register('description', {
-										
+										required: 'Description is Required',
 									})}
 									className='input input-bordered w-full max-w-xs'
 								/>
@@ -309,9 +303,9 @@ const AddProduct = () => {
 									<p className='text-red-500'>{errors.description.message}</p>
 								)}
 							</div>
-							<div className='form-control w-full max-w-xs'>
+							<div className='form-control group w-full max-w-xs'>
 								<label className='label'>
-									<h3 className='label-text'>Photo: <span className='text-orange-500'>(Choose 1 - 3  photos)</span></h3>
+									<h3 className='label-text'>Photo: <span className='text-white group-hover:text-blue-600 group-hover:font-medium'>(Choose 1 - 3  photos)</span></h3>
 								</label>
 								<input
 									type='file'

@@ -6,7 +6,7 @@ import Loader from '../../../Shared/Loader/Loader';
 
 const Registration = () => {
 
-  const { createUser, loading} = useContext(AuthContext)
+  const { createUser, loading, logOut} = useContext(AuthContext)
 
   const navigate = useNavigate()
   
@@ -116,7 +116,7 @@ const Registration = () => {
 
 
 
-          					//! Save User info to the database....
+        //! Save User info to the database....
 					fetch('http://localhost:5000/users', {
 						method: 'POST',
 						headers: {
@@ -129,8 +129,9 @@ const Registration = () => {
 							console.log(result);
 
 
-              navigate('/login')
-              alert('Registration successful')
+							navigate('/login')
+							logOut()
+                            alert('Registration successful')
 
 
 						});
@@ -307,7 +308,7 @@ const Registration = () => {
 							</div>
 							<input
 								className='btn bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 border-0 text-white w-full mt-4'
-								value='Add product'
+								value='Register'
 								type='submit'
 							/>
 						</form>
