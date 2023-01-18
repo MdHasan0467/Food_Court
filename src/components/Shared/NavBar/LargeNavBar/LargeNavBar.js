@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
 import Button from '../../Button/Button';
 import LargeButton from '../../LargeButton/LargeButton';
@@ -28,12 +29,12 @@ const LargeNavBar = () => {
     const handleLogOut = () => {
         logOut()
         navigate('/login')
-        alert('LogOut')
+        toast('LogOut')
     }
 
 	return (
 		<div>
-			<div className='navbar bg-transparent text-white'>
+			<div className='navbar bg-transparent text-white py-5'>
 				<div className='navbar-start group'>
 				<Link className='nav flex' to='/'>
 				<img className='w-16 h-10 rounded-lg mt-2' src='FC.png' alt='' />
@@ -43,25 +44,27 @@ const LargeNavBar = () => {
 				</Link>
 				</div>
 				<div className='navbar-center hidden lg:flex'>
-					<Link className='ml-5 nav hover:text-gray-800' to='/'>
+					<Link  className=' ml-5 nav hover:text-gray-800' to='/'>
 						Home
 					</Link>
-					<Link className='ml-5 nav hover:text-gray-800' to='/add-product'>
+				
+					<Link  className=' ml-5 nav hover:text-gray-800' to='/add-product'>
 						Add Product
 					</Link>
-					<Link className='ml-5 nav hover:text-gray-800' to='/faq'>
+					
+					<Link  className=' ml-5 nav hover:text-gray-800' to='/faq'>
 						FAQ
 					</Link>
-					<Link className='ml-5 nav hover:text-gray-800' to='/about'>
+					<Link  className=' ml-5 nav hover:text-gray-800' to='/about'>
 						About
 					</Link>
 				</div>
 				<div className='navbar-end flex'>
         {user?.uid ?
         <>
-        <div className="dropdown dropdown-end">
+        <div className="dropdown dropdown-end tooltip tooltip-left tooltip-primary" data-tip="Click here">
         <label tabIndex={0} className="btn btn-ghost btn-circle avatar online">
-          <div className="w-16 flex items-center rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+          <div className="w-16 rounded-full ring ring-primary hover:ring-secondary ring-offset-base-100 ring-offset-2">
             <img className=""  src={logUser?.image} />
           </div>
         </label>

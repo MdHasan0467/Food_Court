@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
@@ -30,11 +31,11 @@ const Login = () => {
       
       navigate('/')
 
-      alert('success login');
+      toast('Login Successful');
       })
       
     .catch((error) => {
-      alert('Something is wrong! Please Check and Try again');
+      toast('Something is wrong! Please Check and Try again');
     });
 
 

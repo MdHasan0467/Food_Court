@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
 import Loader from '../../../Shared/Loader/Loader';
 
@@ -51,7 +52,7 @@ const Registration = () => {
     const password = data.password;
     const role = data.role;
     const image = data.img;
-    console.log(role, image)
+    // console.log(role, image)
 
     
 
@@ -90,7 +91,7 @@ const Registration = () => {
 			.then((imgData) => {
 				console.log(imgData);
         if (imgData.success) {
-          console.log(imgData.data.url)
+        //   console.log(imgData.data.url)
 
 
 
@@ -126,12 +127,12 @@ const Registration = () => {
 					})
 						.then((res) => res.json())
 						.then((result) => {
-							console.log(result);
+							// console.log(result);
 
 
 							navigate('/login')
 							logOut()
-                            alert('Registration successful')
+                            toast('Registration successful')
 
 
 						});
@@ -173,7 +174,7 @@ const Registration = () => {
 
 
 
-      //! Loding . . .
+      //! Loading . . .
       if (loading) {
         <Loader></Loader>
     }
@@ -218,7 +219,7 @@ const Registration = () => {
 											{errors.name.message}
 										</p>
 									)}
-                  </div>
+                               </div>
                   
 
 
@@ -262,30 +263,30 @@ const Registration = () => {
 								{errors.password && (
 									<p className='text-red-500'>{errors.password.message}</p>
 								)}
-              </div>
+                             </div>
                   
 
                   
                   
                   
-              <div className='form-control w-full max-w-xs'>
-              <label className='label'>
-                <span className='label-text'>Who you are ?</span>
-              </label>
-              <select
-                {...register('role', {
-                  required: true,
-                })}
-                className='select input-bordered w-full max-w-xs'
-              >
-                <option disabled>Choose your role</option>
-                <option>Buyer</option>
-                <option>Seller</option>
-              </select>
-              {errors.role && (
-                <p className='text-red-500'>{errors.role.message}</p>
-              )}
-            </div>
+								<div className='form-control w-full max-w-xs'>
+								<label className='label'>
+									<span className='label-text'>Who you are ?</span>
+								</label>
+								<select
+									{...register('role', {
+									required: true,
+									})}
+									className='select input-bordered w-full max-w-xs'
+								>
+									<option disabled>Choose your role</option>
+									<option>Buyer</option>
+									<option>Seller</option>
+								</select>
+								{errors.role && (
+									<p className='text-red-500'>{errors.role.message}</p>
+								)}
+								</div>
 
 
 

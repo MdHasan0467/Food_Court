@@ -198,10 +198,7 @@ const Category = () => {
 
 
   
-  const handleCategory = id => {
-    alert(id)
-    setGetCategory(id)
-  }
+
 
 
 
@@ -213,8 +210,8 @@ const Category = () => {
     return (
 
       <div>
-        <h2 className='text-2xl text-gray-800'>Category</h2>
-        <div className='blurEffect text-start py-10'>
+        <h2 className='text-2xl text-gray-800 text-start mx-6 my-2'>Products category</h2>
+        <div className='blurEffect text-start pb-10'>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-center">
             
             
@@ -237,7 +234,7 @@ const Category = () => {
               <p>${getCategoryChinese?.price}</p>
             <div className="card-actions justify-end">
               <Link to={getCategoryChinese?.category}>
-              <button onClick={() => handleCategory(getCategoryChinese?.category)} className="text-4xl text-white   group-hover:text-violet-700">
+              <button className="text-4xl text-white   group-hover:text-violet-700">
               <BsArrowRightShort></BsArrowRightShort>
               </button>
               </Link>
@@ -260,7 +257,7 @@ const Category = () => {
               <p>${getCategoryChicken?.price}</p>
             <div className="card-actions justify-end">
               <Link to={getCategoryChicken?.category}>
-              <button onClick={() => handleCategory(getCategoryChicken?.category)} className="text-4xl text-white   group-hover:text-violet-700">
+              <button className="text-4xl text-white   group-hover:text-violet-700">
               <BsArrowRightShort></BsArrowRightShort>
               </button>
               </Link>
@@ -283,7 +280,7 @@ const Category = () => {
               <p>${getCategoryRice?.price}</p>
             <div className="card-actions justify-end">
               <Link to={getCategoryRice?.category}>
-              <button onClick={() => handleCategory(getCategoryRice?.category)} className="text-4xl text-white   group-hover:text-violet-700">
+              <button className="text-4xl text-white   group-hover:text-violet-700">
               <BsArrowRightShort></BsArrowRightShort>
               </button>
               </Link>
@@ -306,7 +303,7 @@ const Category = () => {
               <p>${getCategoryDrinks?.price}</p>
             <div className="card-actions justify-end">
               <Link to={getCategoryDrinks?.category}>
-              <button onClick={() => handleCategory(getCategoryDrinks?.category)} className="text-4xl text-white   group-hover:text-violet-700">
+              <button className="text-4xl text-white   group-hover:text-violet-700">
               <BsArrowRightShort></BsArrowRightShort>
               </button>
               </Link>

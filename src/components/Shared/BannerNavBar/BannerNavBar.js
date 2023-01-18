@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import Button from '../Button/Button';
 import LargeButton from '../LargeButton/LargeButton';
@@ -25,7 +26,7 @@ const BannerNavBar = () => {
     const handleLogOut = () => {
         logOut();
         navigate('/login');
-        alert('LogOut');
+        toast('LogOut');
     }
 
 
@@ -65,7 +66,6 @@ const BannerNavBar = () => {
             <Link className='ml-5 nav hover:text-white' to='/faq'>
 			      FAQ
             </Link>
-            
             <Link className='ml-5 nav hover:text-white' to='/about'>
                 About
             </Link>
@@ -73,9 +73,9 @@ const BannerNavBar = () => {
         <div className='navbar-end flex'>
         {user?.uid ?
         <>
-        <div className="dropdown dropdown-end">
+        <div className="dropdown dropdown-end tooltip tooltip-left tooltip-primary" data-tip="Click here">
         <label tabIndex={0} className="btn btn-ghost btn-circle avatar online">
-          <div className="w-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+          <div className="w-16 rounded-full ring ring-primary hover:ring-secondary ring-offset-base-100 ring-offset-2">
             <img className=""  src={logUser?.image} />
           </div>
         </label>

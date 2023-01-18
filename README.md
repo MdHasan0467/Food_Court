@@ -6,6 +6,7 @@
 3. React router dom
 4. npm i react-auto-typing
 5. npm install axios
+6. npm install --save react-toastify
 
 
 

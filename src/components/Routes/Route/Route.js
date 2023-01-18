@@ -14,16 +14,13 @@ import Others from '../Layouts/Others/Others';
 const Route = () => {
     const router = createBrowserRouter([
         {
-            path:'/',
-            element: <Main></Main>,
+            path:'/', element: <Main></Main>,
             children: [
                 {
-                    path: '/',
-                    element:<Home></Home>
+                    path: '/',  element:<Home></Home>
                 },
                 {
-                    path: '/home',
-                    element:<Home></Home>
+                    path: '/home',  element:<Home></Home>
                 },
                 
             ]
@@ -31,34 +28,28 @@ const Route = () => {
 
 
         {
-            path:'/',
-            element: <Others></Others>,
+            path:'/',  element: <Others></Others>,
             children: [
             
                
                 {
-                    path: '/:category',
-                    element: <PrivateRoute><CategoryDetails></CategoryDetails></PrivateRoute>
+                    path: '/:category',  element: <CategoryDetails></CategoryDetails>,
+                    loader: ({ params }) => fetch(`http://localhost:5000/category/${params.category}`)
                 },
                 {
-                    path: '/add-product',
-                    element:<AddProduct></AddProduct>
+                    path: '/add-product',   element:<AddProduct></AddProduct>
                 },
                 {
-                    path: '/login',
-                    element:<Login></Login>
+                    path: '/login',  element:<Login></Login>
                 },
                 {
-                    path: '/register',
-                    element:<Registration></Registration>
+                    path: '/register',   element:<Registration></Registration>
                 },
                 {
-                    path: '/about',
-                    element:<About></About>
+                    path: '/about',  element:<About></About>
                 },
                 {
-                    path: '/faq',
-                    element:<FAQ></FAQ>
+                    path: '/faq',  element:<FAQ></FAQ>
                 },
                 
 

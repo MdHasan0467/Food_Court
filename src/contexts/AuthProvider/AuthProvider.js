@@ -30,7 +30,6 @@ const AuthProvider = ({children}) => {
 		fetch(`http://localhost:5000/${user?.email}`)
 			.then((res) => res.json())
 			.then((result) => {
-				
 				setLogUser(result);
 			});
 	}, [user?.email]);

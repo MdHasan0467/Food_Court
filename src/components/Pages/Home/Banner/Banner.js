@@ -26,7 +26,7 @@ const Banner = () => {
 							<div className='text-white blurEffect text-start '>
 								<div className='heading-content'>
 									<h2 className='text-start ml-[20%] py-2 text-3xl'>
-										Welcome To Our
+										Welcome To 
 									</h2>
 																	
 								
