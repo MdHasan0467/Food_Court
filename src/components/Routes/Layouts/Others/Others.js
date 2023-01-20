@@ -1,5 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import Footer from '../../../Shared/Footer/Footer';
 import LargeNavBar from '../../../Shared/NavBar/LargeNavBar/LargeNavBar';
 
 
@@ -12,6 +13,7 @@ const Others = () => {
 		<LargeNavBar></LargeNavBar>
             </div>
             <Outlet></Outlet>
+            <Footer></Footer>
         </div>
     );
 };

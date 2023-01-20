@@ -1,5 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { BsEyeFill, BsEyeSlashFill } from 'react-icons/bs';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
@@ -12,7 +13,8 @@ const Registration = () => {
   const navigate = useNavigate()
   
 
-
+  const [changePassword, setChangePassword] = useState(true);
+  const changeIcon = changePassword === true ? false : true;
 
 
 
@@ -190,7 +192,7 @@ const Registration = () => {
           <div className="text-center lg:text-left">
            <img className='h-[500px] w-[600px] rounded-2xl' src="signUp-img.png" alt="" />
           </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <div className="card flex-shrink-0 shadow-2xl bg-base-100">
               <div className="card-body">
               <h3 className='font-serif text-2xl'>Register Here</h3>
               <form
@@ -220,11 +222,8 @@ const Registration = () => {
 										</p>
 									)}
                                </div>
+							
                   
-
-
-
-
 
 
 								<div className='form-control w-full max-w-xs'>
@@ -253,8 +252,9 @@ const Registration = () => {
 								<label className='label'>
 									<span className='label-text'>Password :</span>
 								</label>
-								<input
-									type='password'
+									<div className="flex">
+									<input
+								       type={changePassword ? "password" : "text"}
 									{...register('password', {
 										
 									})}
@@ -263,8 +263,19 @@ const Registration = () => {
 								{errors.password && (
 									<p className='text-red-500'>{errors.password.message}</p>
 								)}
+								<span className="flex items-center mx-2"
+								onClick={() => {
+								   setChangePassword(changeIcon);
+								}}
+							 >
+								{changeIcon ? <BsEyeSlashFill /> : <BsEyeFill />}
+							 </span>
+									</div>
                              </div>
                   
+								
+								
+							 
 
                   
                   

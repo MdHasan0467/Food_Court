@@ -2,12 +2,18 @@
 
 ### Installations:
 1. Tailwindcss
+# Component Library (1)
 2. Daisy ui
 3. React router dom
 4. npm i react-auto-typing
 5. npm install axios
 6. npm install --save react-toastify
+7. npm install react-icons --save
+# Component Library (2)
+8. npm install @headlessui/react
 
+# Component Library (3)
+9. Mamba UI (No need install to use mamba ui)
 
 
 

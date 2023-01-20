@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
 	
   return (
-		<div className='App'>
+		<div className='App bg-slate-200 px-4 min-h-screen'>
 		  <Route></Route>
 		  <ToastContainer />
 		</div>

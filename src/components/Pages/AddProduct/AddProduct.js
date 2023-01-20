@@ -306,7 +306,7 @@ const AddProduct = () => {
 							</div>
 							<div className='form-control group w-full max-w-xs'>
 								<label className='label'>
-									<h3 className='label-text'>Photo: <span className='text-white group-hover:text-blue-600 group-hover:font-medium'>(Choose 1 - 3  photos)</span></h3>
+									<h3 className='label-text'>Choose from Album <span className='text-white group-hover:text-blue-600 group-hover:font-medium'>(Choose 1 - 3  photos)</span></h3>
 								</label>
 								<input
 									type='file'

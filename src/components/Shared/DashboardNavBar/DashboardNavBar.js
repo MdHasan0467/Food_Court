@@ -2,12 +2,14 @@ import React, { useContext } from 'react';
 import { BsFillCartCheckFill, BsFillSuitHeartFill } from 'react-icons/bs';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
-import { Switch } from '@headlessui/react';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import Button from '../Button/Button';
+import LargeButton from '../LargeButton/LargeButton';
 import { useState } from 'react'
-import LargeButton from '../../LargeButton/LargeButton';
+import { Switch } from '@headlessui/react'
 
-const LargeNavBar = () => {
+
+const DashboardNavBar = () => {
 
 
 	    //!  Current User
@@ -15,9 +17,8 @@ const LargeNavBar = () => {
 
 
   
-  
-      //! State for Switch
-      const [enabled, setEnabled] = useState(false)
+  //! State for Switch
+    const [enabled, setEnabled] = useState(false)
 
 
 
@@ -27,6 +28,9 @@ const LargeNavBar = () => {
 
 
 
+  
+  
+    
 
 
 
@@ -38,9 +42,8 @@ const LargeNavBar = () => {
         toast('LogOut')
     }
 
-	return (
-		<div>
-			<div className='navbar bg-transparent text-white py-5'>
+    return (
+        <div className='navbar bg-transparent text-white py-5'>
 				<div className='navbar-start group'>
 				<Link className='nav flex' to='/'>
 				<img className='w-16 h-10 rounded-lg mt-2' src='FC.png' alt='' />
@@ -63,23 +66,21 @@ const LargeNavBar = () => {
 					</Link>
 					<Link  className=' ml-5 nav hover:text-gray-800' to='/about'>
 						About
-					</Link>
-					<Link  className=' ml-5 nav hover:text-gray-800' to='/dashboard'>
-          Dashboard
-					</Link>
-        </div>
-                    
+                </Link>
+                
+            </div>
+            
 
 				<div className='navbar-end flex'>
-        <Link title='My Orders' className=' ml-5 nav hover:text-gray-800' to='/Orders'>
-          <BsFillCartCheckFill></BsFillCartCheckFill>
-        </Link>
-      
-        <Link title='My Wishes' className=' ml-5 nav hover:text-gray-800' to='/wishes'>
-          <BsFillSuitHeartFill></BsFillSuitHeartFill>
-        </Link>
-          </div>
-          
+					<Link title='My Orders' className=' ml-5 nav hover:text-gray-800' to='/Orders'>
+						<BsFillCartCheckFill></BsFillCartCheckFill>
+					</Link>
+				
+					<Link title='My Wishes' className=' ml-5 nav hover:text-gray-800' to='/wishes'>
+						<BsFillSuitHeartFill></BsFillSuitHeartFill>
+					</Link>
+            </div>
+            
 				<div className='navbar-end flex'>
         {user?.uid &&
         <>
@@ -126,8 +127,7 @@ const LargeNavBar = () => {
         }
         </div>
 			</div>
-		</div>
-	);
+    );
 };
 
-export default LargeNavBar;
+export default DashboardNavBar;

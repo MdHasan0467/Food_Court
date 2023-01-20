@@ -1,8 +1,10 @@
+import { Switch } from '@headlessui/react';
+import { useState } from 'react'
 import React, { useContext } from 'react';
+import { BsFillCartCheckFill, BsFillSuitHeartFill } from 'react-icons/bs';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
-import Button from '../Button/Button';
 import LargeButton from '../LargeButton/LargeButton';
 
 const BannerNavBar = () => {
@@ -11,6 +13,9 @@ const BannerNavBar = () => {
     const { user, logOut, logUser } = useContext(AuthContext);
 
 
+  
+    //! State for Switch
+    const [enabled, setEnabled] = useState(false)
 
     
     //! Navigate
@@ -64,14 +69,31 @@ const BannerNavBar = () => {
                 Add Product
             </Link>
             <Link className='ml-5 nav hover:text-white' to='/faq'>
-			      FAQ
+			          FAQ
             </Link>
             <Link className='ml-5 nav hover:text-white' to='/about'>
                 About
             </Link>
+            <Link className=' ml-5 nav hover:text-white' to='/dashboard'>
+                Dashboard
+					</Link>
         </div>
+                    
+
+				<div className='navbar-end'>
+            <div className="flex bg-gradient-to-l to-violet-500 from-fuchsia-500 border-0 py-2 pr-3 rounded-xl">
+            <Link title='My Orders' className=' ml-5  hover:text-emerald-700' to='/Orders'>
+          <BsFillCartCheckFill></BsFillCartCheckFill>
+        </Link>
+      
+        <Link title='My Wishes' className=' ml-5  hover:text-red-600' to='/wishes'>
+          <BsFillSuitHeartFill></BsFillSuitHeartFill>
+        </Link>
+            </div>
+          </div>
+          
         <div className='navbar-end flex'>
-        {user?.uid ?
+        {user?.uid &&
         <>
         <div className="dropdown dropdown-end tooltip tooltip-left tooltip-primary" data-tip="Click here">
         <label tabIndex={0} className="btn btn-ghost btn-circle avatar online">
@@ -87,24 +109,32 @@ const BannerNavBar = () => {
             </h2>
           </li>
           <li>
-          <LargeButton>Dashboard</LargeButton>
+          <LargeButton>Settings</LargeButton>
           </li>
           <li onClick={handleLogOut}>
           <LargeButton>LogOut</LargeButton>
           </li>
+          <div className="py-2 flex">
+          <h1 className='mx-2 flex items-center text-gray-400'>Light</h1>
+            <Switch
+              checked={enabled}
+              onChange={setEnabled}
+              className={`${enabled ? 'bg-violet-500' : 'bg-fuchsia-500'}
+                relative inline-flex h-[38px] w-[74px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
+            >
+              <span className="sr-only">Use setting</span>
+              <span
+                aria-hidden="true"
+                className={`${enabled ? 'translate-x-9' : 'translate-x-0'}
+                  pointer-events-none inline-block h-[34px] w-[34px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
+              />
+            </Switch>
+            <h1 className='mx-2 flex items-center text-gray-400'>Night</h1>
+          </div>
         </ul>
       </div>
         </>
-        :
-        <>
-        <Link className="mx-1" to='/login'>
-        <Button>Login</Button>
-        </Link>
-                    
-        <Link className="mx-1" to='/register'>
-        <Button>Register</Button>
-        </Link>
-        </>
+        
         }
         </div>
     </div>

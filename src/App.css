@@ -13,6 +13,17 @@
 /* ================ */
 
 
+
+.bgFAQ{
+  background-image: url('../public/FAQ-img.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  backdrop-filter: blur(10px)
+}
+/* ================ */
+
+
 /* todo: Project Car Design */
 .cardBG{
     background: linear-gradient(to top right, #fff, #043c80);
