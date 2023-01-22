@@ -35,7 +35,7 @@ const LargeNavBar = () => {
     const handleLogOut = () => {
         logOut()
         navigate('/login')
-        toast('LogOut')
+        toast.error('LogOut')
     }
 
 	return (

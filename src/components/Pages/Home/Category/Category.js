@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { BsArrowRightShort } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
+import SelectCategory from '../../CategoryDetails/SelectCategory/SelectCategory';
 // import Loader from '../../../Shared/Loader/Loader';
 // import CategoryDetails from '../../CategoryDetails/CategoryDetails';
 
@@ -65,8 +66,6 @@ const Category = () => {
             .then((data) => {
               console.log('Chinese',data);
               if (data.data !== undefined) {
-                // console.log(typeof data.data);
-                // console.log(data.data);
                 setGetCategoryChinese(data.data[0]);
               }
             });
@@ -170,37 +169,9 @@ const Category = () => {
         
 
 
-  
-  
-  
-  
-  
-  
 
-  
-  
-
-           
       
         
-
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-
-
-
-  
-
-
-
 
  
 
@@ -210,7 +181,11 @@ const Category = () => {
     return (
 
       <div>
+
+        <div className="flex justify-between my-5">
         <h2 className='text-2xl text-gray-800 text-start mx-6 my-2'>Products category</h2>
+        <SelectCategory />
+        </div>
         <div className='blurEffect text-start pb-10'>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-center">
             
@@ -228,13 +203,13 @@ const Category = () => {
           <div className="card h-[600px]  mx-5 group bg-base-100 shadow-xl">
           <img className='w-full h-80' src={getCategoryChinese?.image} alt="img" />
           <div className="card-body">
-              <h2 className="card-title">{getCategoryChinese?.title}</h2>
+              <h2 className="card-title flex justify-between"> <p>{getCategoryChinese?.title}</p> <p>${getCategoryChinese?.price}</p></h2>
               <p>Category: {getCategoryChinese?.category}</p>
               <p className='border p-2'>{getCategoryChinese?.description}</p>
-              <p>${getCategoryChinese?.price}</p>
+              
             <div className="card-actions justify-end">
               <Link to={getCategoryChinese?.category}>
-              <button className="text-4xl text-white   group-hover:text-violet-700">
+              <button title='See details' className="text-4xl text-white   group-hover:text-violet-700">
               <BsArrowRightShort></BsArrowRightShort>
               </button>
               </Link>
@@ -251,13 +226,13 @@ const Category = () => {
           <div className="card h-[600px]  mx-5 group bg-base-100 shadow-xl">
           <img className='w-full h-80' src={getCategoryChicken?.image} alt="img" />
           <div className="card-body">
-              <h2 className="card-title">{getCategoryChicken?.title}</h2>
+              <h2 className="card-title flex justify-between"> <p>{getCategoryChicken?.title}</p> <p>${getCategoryChicken?.price}</p></h2>
               <p>Category: {getCategoryChicken?.category}</p>
               <p className='border p-2'>{getCategoryChicken?.description}</p>
-              <p>${getCategoryChicken?.price}</p>
+              
             <div className="card-actions justify-end">
               <Link to={getCategoryChicken?.category}>
-              <button className="text-4xl text-white   group-hover:text-violet-700">
+              <button title='See details' className="text-4xl text-white   group-hover:text-violet-700">
               <BsArrowRightShort></BsArrowRightShort>
               </button>
               </Link>
@@ -274,13 +249,13 @@ const Category = () => {
           <div className="card h-[600px]  mx-5 group bg-base-100 shadow-xl">
           <img className='w-full h-80' src={getCategoryRice?.image} alt="img" />
           <div className="card-body">
-              <h2 className="card-title">{getCategoryRice?.title}</h2>
+              <h2 className="card-title flex justify-between"> <p>{getCategoryRice?.title}</p> <p>${getCategoryRice?.price}</p></h2>
               <p>Category: {getCategoryRice?.category}</p>
               <p className='border p-2'>{getCategoryRice?.description}</p>
-              <p>${getCategoryRice?.price}</p>
+             
             <div className="card-actions justify-end">
               <Link to={getCategoryRice?.category}>
-              <button className="text-4xl text-white   group-hover:text-violet-700">
+              <button title='See details' className="text-4xl text-white   group-hover:text-violet-700">
               <BsArrowRightShort></BsArrowRightShort>
               </button>
               </Link>
@@ -297,13 +272,13 @@ const Category = () => {
           <div className="card h-[600px]  mx-5 group bg-base-100 shadow-xl">
           <img className='w-full h-80' src={getCategoryDrinks?.image} alt="img" />
           <div className="card-body">
-              <h2 className="card-title">{getCategoryDrinks?.title}</h2>
+              <h2 className="card-title flex justify-between"> <p>{getCategoryDrinks?.title}</p> <p>${getCategoryDrinks?.price}</p></h2>
               <p>Category: {getCategoryDrinks?.category}</p>
               <p className='border p-2'>{getCategoryDrinks?.description}</p>
-              <p>${getCategoryDrinks?.price}</p>
+              
             <div className="card-actions justify-end">
               <Link to={getCategoryDrinks?.category}>
-              <button className="text-4xl text-white   group-hover:text-violet-700">
+              <button title='See details' className="text-4xl text-white   group-hover:text-violet-700">
               <BsArrowRightShort></BsArrowRightShort>
               </button>
               </Link>

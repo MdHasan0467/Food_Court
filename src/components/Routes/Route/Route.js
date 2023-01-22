@@ -6,6 +6,7 @@ import AddProduct from '../../Pages/AddProduct/AddProduct';
 import CategoryDetails from '../../Pages/CategoryDetails/CategoryDetails';
 import AdminDetails from '../../Pages/Dashboard/AdminDetails/AdminDetails';
 import Profile from '../../Pages/Dashboard/Profile/Profile';
+import UpdateFoodCourt from '../../Pages/Dashboard/UpdateFoodCourt/UpdateFoodCourt';
 import FAQ from '../../Pages/FAQ/FAQ';
 import Login from '../../Pages/Form/Login/Login';
 import Registration from '../../Pages/Form/Registration/Registration';
@@ -103,15 +104,14 @@ const Route = () => {
                     path: '/dashboard/admin-details',  element: <AdminDetails></AdminDetails>
                 },
                 {
-                    path: '/dashboard',  
+                    path: '/dashboard/orders',  element:<MyOrders></MyOrders>
                 },
                 {
-                    path: '/dashboard',  
+                    path: '/dashboard/wishes',  element:<MyWishes></MyWishes>
                 },
                 {
-                    path: '/dashboard', 
+                    path: '/dashboard/update-food-court',  element:<UpdateFoodCourt></UpdateFoodCourt>
                 },
-                
 
 
             ]

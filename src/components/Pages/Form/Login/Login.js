@@ -31,11 +31,11 @@ const Login = () => {
       
       navigate('/')
 
-      toast('Login Successful');
+      toast.success('Login Successful');
       })
       
     .catch((error) => {
-      toast('Something is wrong! Please Check and Try again');
+      toast.error('Something is wrong! Please Check and Try again');
     });
 
 

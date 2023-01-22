@@ -43,7 +43,7 @@ const AddProduct = () => {
 	  
 		formData.append('image', image[0])
 
-		// console.log(formData)		
+				
 		
 		const url = `https://api.imgbb.com/1/upload?key=${imgHostKey}`;
 		fetch(url, {
@@ -66,7 +66,7 @@ const AddProduct = () => {
 	  
 						formData.append('image', image[1])
 				
-						// console.log(formData)		
+								
 						
 						const url = `https://api.imgbb.com/1/upload?key=${imgHostKey}`;
 						fetch(url, {
@@ -75,9 +75,7 @@ const AddProduct = () => {
 						})
 							.then((res) => res.json())
 							.then((imgData1) => {
-								// console.log(imgData1);
 								if (imgData1.success) {
-									// console.log(imgData1.data.url)
 	
 					//! ------3------------
 					if (image[2]) {
@@ -87,7 +85,7 @@ const AddProduct = () => {
 	  
 						formData.append('image', image[2])
 				
-						// console.log(formData)		
+								
 						
 						const url = `https://api.imgbb.com/1/upload?key=${imgHostKey}`;
 						fetch(url, {
@@ -96,9 +94,7 @@ const AddProduct = () => {
 						})
 							.then((res) => res.json())
 							.then((imgData2) => {
-								// console.log(imgData2);
 								if (imgData2.success) {
-									// console.log(imgData2.data.url)
 	
 									const addedProduct = {
 										author: logUser.name,
@@ -124,8 +120,8 @@ const AddProduct = () => {
 					})
 						.then((res) => res.json())
 						.then((result) => {
-							// console.log(result);
-							toast('Successfully created a new Product!!');
+							
+							toast.success('Successfully created a new Product!!');
 						});
 									
 								}
@@ -158,8 +154,8 @@ const AddProduct = () => {
 					})
 						.then((res) => res.json())
 						.then((result) => {
-							// console.log(result);
-							toast('Successfully created a new Product!!');
+							
+							toast.success('Successfully created a new Product!!');
 						});
 					}
             //!=============<3>===END=====
@@ -195,8 +191,8 @@ const AddProduct = () => {
 					})
 						.then((res) => res.json())
 						.then((result) => {
-							// console.log(result);
-							toast('Successfully created a new Product!!');
+							
+							toast.success('Successfully created a new Product!!');
 						});
 
 

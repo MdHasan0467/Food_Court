@@ -134,7 +134,7 @@ const Registration = () => {
 
 							navigate('/login')
 							logOut()
-                            toast('Registration successful')
+                            toast.success('Registration successful')
 
 
 						});

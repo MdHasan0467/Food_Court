@@ -12,7 +12,7 @@ const BannerNavBar = () => {
     //!  Current User
     const { user, logOut, logUser } = useContext(AuthContext);
 
-
+console.log(logUser)
   
     //! State for Switch
     const [enabled, setEnabled] = useState(false)
@@ -31,7 +31,7 @@ const BannerNavBar = () => {
     const handleLogOut = () => {
         logOut();
         navigate('/login');
-        toast('LogOut');
+        toast.error('LogOut');
     }
 
 
@@ -65,21 +65,34 @@ const BannerNavBar = () => {
             <Link className='ml-5 nav hover:text-white' to='/'>
                 Home
             </Link>
+            {
+              user?.uid &&
             <Link className='ml-5 nav hover:text-white' to='/add-product'>
                 Add Product
             </Link>
+          }
             <Link className='ml-5 nav hover:text-white' to='/faq'>
 			          FAQ
             </Link>
             <Link className='ml-5 nav hover:text-white' to='/about'>
                 About
             </Link>
+            {
+              user?.uid ?
             <Link className=' ml-5 nav hover:text-white' to='/dashboard'>
                 Dashboard
-					</Link>
+			  		</Link>
+            :
+            <Link className=' ml-5 nav hover:text-white' to='/login'>
+                Login
+			  		</Link>
+            }
         </div>
                     
 
+          {
+            user?.uid &&
+         
 				<div className='navbar-end'>
             <div className="flex bg-gradient-to-l to-violet-500 from-fuchsia-500 border-0 py-2 pr-3 rounded-xl">
             <Link title='My Orders' className=' ml-5  hover:text-emerald-700' to='/Orders'>
@@ -91,7 +104,7 @@ const BannerNavBar = () => {
         </Link>
             </div>
           </div>
-          
+        }
         <div className='navbar-end flex'>
         {user?.uid &&
         <>

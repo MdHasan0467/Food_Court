@@ -1,4 +1,9 @@
-
+*{
+  font-family: sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 .bgBanner{
   background-image: url('../public/bgBanner.jpg');
