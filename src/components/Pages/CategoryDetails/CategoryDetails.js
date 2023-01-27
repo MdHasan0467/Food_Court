@@ -36,7 +36,7 @@ const CategoryDetails = () => {
 
     useEffect(() => {
       axios
-        .get(`http://localhost:5000/products/${gettingData[0]?.category}`)
+        .get(`http://localhost:7000/products/${gettingData[0]?.category}`)
         .then((data) => {
           if (data.data !== undefined) {
             console.log(data.data);
@@ -57,7 +57,7 @@ const CategoryDetails = () => {
     //* Make a request for data with a given ID
    
       axios
-        .get(`http://localhost:5000/product/${id}`)
+        .get(`http://localhost:7000/product/${id}`)
         .then((data) => {
           console.log('data', data);
 
@@ -81,7 +81,7 @@ const CategoryDetails = () => {
 
        //* Data post 
 
-      fetch('http://localhost:5000/wish-product', {
+      fetch('http://localhost:7000/wish-product', {
         method: 'POST',
         headers: {
           'content-type': 'application/json',
@@ -117,7 +117,7 @@ const CategoryDetails = () => {
     //* Make a request for data with a given ID
    
       axios
-        .get(`http://localhost:5000/product/${id}`)
+        .get(`http://localhost:7000/product/${id}`)
         .then((data) => {
           if (data.data !== undefined) {
             console.log(data.data);
@@ -140,7 +140,7 @@ const CategoryDetails = () => {
 
       //* Data post 
 
-      fetch('http://localhost:5000/order-product', {
+      fetch('http://localhost:7000/order-product', {
         method: 'POST',
         headers: {
           'content-type': 'application/json',

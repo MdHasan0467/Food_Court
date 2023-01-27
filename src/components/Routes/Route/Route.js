@@ -13,6 +13,7 @@ import Registration from '../../Pages/Form/Registration/Registration';
 import Home from '../../Pages/Home/Home';
 import MyOrders from '../../Pages/MyOrders/MyOrders';
 import MyWishes from '../../Pages/MyWishes/MyWishes';
+import Payment from '../../Pages/Payment/Payment';
 import Dashboard from '../Layouts/Dashboard/Dashboard';
 import DashboardWelcome from '../Layouts/Dashboard/DashboardWelcome/DashboardWelcome';
 import Main from '../Layouts/Main/Main';
@@ -51,10 +52,7 @@ const Route = () => {
                
                 {
                     path: '/:category',  element: <CategoryDetails></CategoryDetails>,
-                    loader: ({ params }) => fetch(`http://localhost:5000/category/${params.category}`)
-                },
-                {
-                    path: '/add-product',   element:<AddProduct></AddProduct>
+                    loader: ({ params }) => fetch(`http://localhost:7000/category/${params.category}`)
                 },
                 
                 {
@@ -68,6 +66,10 @@ const Route = () => {
                 },
                 {
                     path: '/wishes',  element:<MyWishes></MyWishes>
+                },
+                {
+                    path: '/orders/payment/:id', element: <Payment></Payment>,
+                    loader: ({params}) => fetch(`http://localhost:7000/orders/${params.id}`)
                 },
                 
 
@@ -112,7 +114,13 @@ const Route = () => {
                 {
                     path: '/dashboard/update-food-court',  element:<UpdateFoodCourt></UpdateFoodCourt>
                 },
-
+                {
+                    path: '/dashboard/orders/payment/:id', element: <Payment></Payment>,
+                    loader: ({params}) => fetch(`http://localhost:7000/orders/${params.id}`)
+                },
+                {
+                    path: '/dashboard/add-product',   element:<AddProduct></AddProduct>
+                },
 
             ]
         },

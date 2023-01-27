@@ -1,4 +1,6 @@
-import React, { useContext } from 'react';
+
+import React, { useContext, useState } from 'react';
+import { BsEyeFill, BsEyeSlashFill } from 'react-icons/bs';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
@@ -10,7 +12,10 @@ const Login = () => {
   const navigate = useNavigate()
 
 
-
+  //! password show or hidden
+  const [changePassword, setChangePassword] = useState(true);
+  const changeIcon = changePassword === true ? false : true;
+  
 
 
 
@@ -65,7 +70,17 @@ const Login = () => {
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input type="password" name='password' placeholder="password" className="input input-bordered" />
+                <div className="flex">
+                <input type={changePassword ? "password" : "text"}
+                 name='password' placeholder="password" className="input w-full input-bordered" />
+                <span className=" flex items-center mx-2"
+                onClick={() => {
+                   setChangePassword(changeIcon);
+                }}
+             >
+                {changeIcon ? <BsEyeSlashFill /> : <BsEyeFill />}
+             </span>
+                </div>
                 <label className="label">
                   <p  className="label-text-alt link link-hover hover:underline text-start">Forgot password?</p>
                 </label>

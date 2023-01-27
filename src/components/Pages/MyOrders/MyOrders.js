@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { BsFillCursorFill } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const MyOrders = () => {
@@ -9,7 +10,7 @@ const MyOrders = () => {
 
 
 
-	const [wishList, setWishList] = useState()
+	const [orderList, setOrderList] = useState()
 
 
 
@@ -20,15 +21,15 @@ const MyOrders = () => {
 
 	//! fetch for getting products data from mongodb.....
 
-	        // Make a request for WishList category
+	        // Make a request for orderList category
   
        
 			useEffect(() => {
-				fetch(`http://localhost:5000/my-orders/${user?.email}`)
+				fetch(`http://localhost:7000/my-orders/${user?.email}`)
 					.then((res) => res.json())
 					.then((result) => {
 						console.log(result);
-						setWishList(result);
+						setOrderList(result);
 					});
 			}, [user?.email]);
 	
@@ -39,11 +40,11 @@ const MyOrders = () => {
         <div className='min-h-screen'>
        
 			{
-			wishList ?
+			orderList &&
 			<div className="flex justify-center">
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-10">
 			{
-				wishList?.map((data) => 
+				orderList?.map((data) => 
 				<div className="card h-[600px] max-w-md mx-5 group bg-base-100 shadow-xl">
 				<img className='w-full h-80' src={data?.image} alt="img" />
 				<div className="card-body">
@@ -56,19 +57,17 @@ const MyOrders = () => {
 				<p className='border p-2'>{data?.description}</p>
 				
 				<div className="card-actions justify-end">
+				<Link to={`payment/${data._id}`}>
 				<button className='flex  bg-green-500 hover:bg-fuchsia-500 border-0 btn'> <span className='w-auto my-auto mx-2'><BsFillCursorFill/></span> <span>Pay</span></button>
+				</Link>
 			  </div>
 			</div>
 			</div>
 				)}
-		</div> 
+	    	</div> 
 			</div> 
-
-
-					
-			:
-			<p className='text-gray-700'>There are no order right now</p>
-		}
+			}
+			{orderList === undefined && <p className='text-gray-700'>There are no order right now</p>}
         </div>
     );
 };

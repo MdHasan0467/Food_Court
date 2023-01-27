@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BsFacebook, BsGithub, BsLinkedin } from 'react-icons/bs';
+import logo from '../../../Resource/FC_logo.jpg';
 
 const Footer = () => {
     return (
@@ -14,7 +15,7 @@ const Footer = () => {
             className=""
           >
           <Link className='flex' to='/'>
-          <img className='w-16 h-10 rounded-lg mt-2' src='FC.png' alt='' />
+          <img className='w-16 h-10 rounded-lg mt-2' src={logo} alt='logo' />
           <span className="ml-2 text-xl my-auto font-bold tracking-wide text-gray-800 uppercase">
           Food Court Restaurant
         </span>

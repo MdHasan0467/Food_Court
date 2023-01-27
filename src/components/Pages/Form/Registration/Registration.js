@@ -120,7 +120,7 @@ const Registration = () => {
 
 
         //! Save User info to the database....
-					fetch('http://localhost:5000/users', {
+					fetch('http://localhost:7000/users', {
 						method: 'POST',
 						headers: {
 							'content-type': 'application/json',

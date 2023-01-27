@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import LargeButton from '../LargeButton/LargeButton';
+import logo from '../../../Resource/FC_logo.jpg';
 
 const BannerNavBar = () => {
 
@@ -55,7 +56,7 @@ console.log(logUser)
         <div className='navbar bg-transparent text-white py-5'>
         <div className='navbar-start'>
         <Link className='nav flex' to='/'>
-        <img className='w-16 h-10 rounded-lg mt-2' src='FC.png' alt='' />
+              <img className='w-16 h-10 rounded-lg mt-2' src={logo} alt='' />
             <h3 className=' flex items-center mx-5 text-xl group-hover:text-gray-800 font-semibold font-serif'>
                 Food Court
             </h3>
@@ -65,12 +66,7 @@ console.log(logUser)
             <Link className='ml-5 nav hover:text-white' to='/'>
                 Home
             </Link>
-            {
-              user?.uid &&
-            <Link className='ml-5 nav hover:text-white' to='/add-product'>
-                Add Product
-            </Link>
-          }
+            
             <Link className='ml-5 nav hover:text-white' to='/faq'>
 			          FAQ
             </Link>
@@ -95,11 +91,11 @@ console.log(logUser)
          
 				<div className='navbar-end'>
             <div className="flex bg-gradient-to-l to-violet-500 from-fuchsia-500 border-0 py-2 pr-3 rounded-xl">
-            <Link title='My Orders' className=' ml-5  hover:text-emerald-700' to='/Orders'>
+            <Link title='My Orders' className=' ml-5  hover:text-[#04d1ff]' to='/Orders'>
           <BsFillCartCheckFill></BsFillCartCheckFill>
         </Link>
       
-        <Link title='My Wishes' className=' ml-5  hover:text-red-600' to='/wishes'>
+        <Link title='My Wishes' className=' ml-5  hover:text-[#1eff09]' to='/wishes'>
           <BsFillSuitHeartFill></BsFillSuitHeartFill>
         </Link>
             </div>

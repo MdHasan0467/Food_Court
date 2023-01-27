@@ -6,6 +6,7 @@ import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
 import { Switch } from '@headlessui/react';
 import { useState } from 'react'
 import LargeButton from '../../LargeButton/LargeButton';
+import logo from '../../../../Resource/FC_logo.jpg';
 
 const LargeNavBar = () => {
 
@@ -43,7 +44,7 @@ const LargeNavBar = () => {
 			<div className='navbar bg-transparent text-white py-5'>
 				<div className='navbar-start group'>
 				<Link className='nav flex' to='/'>
-				<img className='w-16 h-10 rounded-lg mt-2' src='FC.png' alt='' />
+				<img className='w-16 h-10 rounded-lg mt-2' src={logo} alt='' />
 					<h3 className=' flex items-center mx-5 text-xl group-hover:text-gray-800 font-semibold font-serif'>
 						Food Court
 					</h3>
@@ -52,10 +53,6 @@ const LargeNavBar = () => {
 				<div className='navbar-center hidden lg:flex'>
 					<Link  className=' ml-5 nav hover:text-gray-800' to='/'>
 						Home
-					</Link>
-				
-					<Link  className=' ml-5 nav hover:text-gray-800' to='/add-product'>
-						Add Product
 					</Link>
 					
 					<Link  className=' ml-5 nav hover:text-gray-800' to='/faq'>

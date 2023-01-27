@@ -20,6 +20,7 @@ const Dashboard = () => {
                         <li className='my-5 hover:underline'><Link to='/dashboard/all-users'>All Users</Link></li>
                         <li className='my-5 hover:underline'><Link to='/dashboard/all-buyers'>All Customers</Link></li>
                         <li className='my-5 hover:underline'><Link to='/dashboard/all-sellers'>All Sellers</Link></li>
+                        <li className='my-5 hover:underline'><Link to='/dashboard/add-product'>Add Product</Link></li>
                         <li className='my-5 hover:underline'><Link to='/dashboard/update-food-court'>Update Food Court</Link></li>
                         </>
                     }
@@ -35,6 +36,23 @@ const Dashboard = () => {
                         <li className='my-5 hover:underline'><Link to='/dashboard/admin-details'>Admin Details</Link></li>
                         <li className='my-5 hover:underline'><Link to='/dashboard/Orders'>My Orders</Link></li>
                         <li className='my-5 hover:underline'><Link to='/dashboard/wishes'>My Wishes</Link></li>
+
+                        </>
+                    }
+
+                        
+                        
+                        
+                        
+                   
+                    
+                    {
+                        logUser?.role === 'Seller' && 
+                        <>
+                        <li className='my-5 hover:underline'><Link to='/dashboard/user-profile'>Profile</Link></li>
+                        <li className='my-5 hover:underline'><Link to='/dashboard/admin-details'>Admin Details</Link></li>
+                        <li className='my-5 hover:underline'><Link to='/dashboard/add-product'>Add Product</Link></li>
+                        
 
                         </>
                     }

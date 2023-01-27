@@ -62,7 +62,7 @@ const Category = () => {
        
           useEffect(() => {
             axios
-            .get('http://localhost:5000/category/Chinese')
+            .get('http://localhost:7000/category/Chinese')
             .then((data) => {
               console.log('Chinese',data);
               if (data.data !== undefined) {
@@ -89,7 +89,7 @@ const Category = () => {
        
         useEffect(() => {
           axios
-          .get('http://localhost:5000/category/Rice')
+          .get('http://localhost:7000/category/Rice')
           .then((data) => {
             console.log('Rice',data);
             if (data.data !== undefined) {
@@ -118,7 +118,7 @@ const Category = () => {
   
           useEffect(() => {
             axios
-            .get('http://localhost:5000/category/Drinks')
+            .get('http://localhost:7000/category/Drinks')
             .then((data) => {
               console.log('Drinks',data);
               if (data.data !== undefined) {
@@ -154,7 +154,7 @@ const Category = () => {
        
           useEffect(() => {
             axios
-            .get('http://localhost:5000/category/Chicken')
+            .get('http://localhost:7000/category/Chicken')
             .then((data) => {
               console.log('Chicken',data);
               if (data.data !== undefined) {

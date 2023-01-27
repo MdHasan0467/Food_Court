@@ -27,7 +27,7 @@ const AuthProvider = ({children}) => {
     // ! Get login User from database
 
     useEffect(() => {
-		fetch(`http://localhost:5000/${user?.email}`)
+		fetch(`http://localhost:7000/${user?.email}`)
 			.then((res) => res.json())
 			.then((result) => {
 				setLogUser(result);

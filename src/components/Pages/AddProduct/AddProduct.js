@@ -111,7 +111,7 @@ const AddProduct = () => {
 									
 
 					//! Save addedProducts info to the database....
-					fetch('http://localhost:5000/products', {
+					fetch('http://localhost:7000/products', {
 						method: 'POST',
 						headers: {
 							'content-type': 'application/json',
@@ -120,7 +120,6 @@ const AddProduct = () => {
 					})
 						.then((res) => res.json())
 						.then((result) => {
-							
 							toast.success('Successfully created a new Product!!');
 						});
 									
@@ -145,7 +144,7 @@ const AddProduct = () => {
 						
 
 					//! Save addedProducts info to the database....
-					fetch('http://localhost:5000/products', {
+					fetch('http://localhost:7000/products', {
 						method: 'POST',
 						headers: {
 							'content-type': 'application/json',
@@ -154,7 +153,6 @@ const AddProduct = () => {
 					})
 						.then((res) => res.json())
 						.then((result) => {
-							
 							toast.success('Successfully created a new Product!!');
 						});
 					}
@@ -182,7 +180,7 @@ const AddProduct = () => {
 						
 
 					//! Save addedProducts info to the database....
-					fetch('http://localhost:5000/products', {
+					fetch('http://localhost:7000/products', {
 						method: 'POST',
 						headers: {
 							'content-type': 'application/json',
@@ -191,7 +189,6 @@ const AddProduct = () => {
 					})
 						.then((res) => res.json())
 						.then((result) => {
-							
 							toast.success('Successfully created a new Product!!');
 						});
 
@@ -213,10 +210,10 @@ const AddProduct = () => {
 
 
     return (
-        <div className='bg-base-200'>
+        <div className='bg-base-200 rounded-lg'>
 			<br />
 			<h1 className='mb-5 text-2xl'>Add Your Product</h1>
-			<div className='hero min-h-screen bg-base-200'>
+			<div className='hero min-h-screen bg-base-300'>
 				<div className='hero-content grid grid-cols-1 lg:grid-cols-2-col'>
 					<div className='card grid grid-cols-1 lg:grid-cols-2-shrink-0 w-full max-w-sm shadow-2xl bg-base-100'>
 						<form

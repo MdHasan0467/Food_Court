@@ -10,8 +10,8 @@ const Others = () => {
     return (
         <div>
         <div className='hidden md:block'>
-		<LargeNavBar></LargeNavBar>
-            </div>
+		    <LargeNavBar></LargeNavBar>
+        </div>
             <Outlet></Outlet>
             <Footer></Footer>
         </div>

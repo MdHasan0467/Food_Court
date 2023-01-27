@@ -14,6 +14,7 @@
 
 # Component Library (3)
 9. Mamba UI (No need install to use mamba ui)
+10. npm install @stripe/react-stripe-js @stripe/stripe-js
 
 
 

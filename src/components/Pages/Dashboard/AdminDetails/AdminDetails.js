@@ -5,7 +5,7 @@ const AdminDetails = () => {
 
 
   useEffect(() => {
-    fetch('http://localhost:5000/admin')
+    fetch('http://localhost:7000/admin')
         .then(res => res.json())
         .then(data => {
            console.log(data)

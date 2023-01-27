@@ -30,7 +30,7 @@ const MyWishes = () => {
   
        
 			useEffect(() => {
-				fetch(`http://localhost:5000/my-wish/${user?.email}`)
+				fetch(`http://localhost:7000/my-wish/${user?.email}`)
 					.then((res) => res.json())
 					.then((result) => {
 						setWishList(result);
@@ -48,14 +48,11 @@ const MyWishes = () => {
 	//! ================== Order ==================
 
 			const handleOrder = (id) => {
-			  
-		 
-		  
 		  
 			  //* Make a request for data with a given ID
 			 
 				axios
-				  .get(`http://localhost:5000/product-wish/${id}`)
+				  .get(`http://localhost:7000/product-wish/${id}`)
 					.then((data) => {
 					  console.log(data);
 					if (data.data !== undefined) {
@@ -76,7 +73,7 @@ const MyWishes = () => {
 		  
 				//* ================== Data post ==================
 		  
-				fetch('http://localhost:5000/order-product', {
+				fetch('http://localhost:7000/order-product', {
 				  method: 'POST',
 				  headers: {
 					'content-type': 'application/json',
@@ -106,7 +103,7 @@ const MyWishes = () => {
 		  
 		  
 		  
-		  
+		  console.log(wishList);
 
 
 
@@ -117,7 +114,7 @@ const MyWishes = () => {
 
         <div className='min-h-screen'>
        
-			{wishList ? 
+			{wishList && 
 				<div className="flex justify-center">
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-10 justify-center">
 				{
@@ -142,9 +139,11 @@ const MyWishes = () => {
 					)}
 			</div> 
 				</div>
-			:
-			<p>There are no wish list</p>
-		}
+			
+			}
+			{wishList === undefined &&
+				<p>There are no wish list available</p>
+			}
         </div>
     );
 };
