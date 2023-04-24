@@ -52,7 +52,7 @@ const Route = () => {
                
                 {
                     path: '/:category',  element: <CategoryDetails></CategoryDetails>,
-                    loader: ({ params }) => fetch(`http://localhost:7000/category/${params.category}`)
+                    loader: ({ params }) => fetch(`https://food-court-server-three.vercel.app/category/${params.category}`)
                 },
                 
                 {
@@ -69,7 +69,7 @@ const Route = () => {
                 },
                 {
                     path: '/orders/payment/:id', element: <Payment></Payment>,
-                    loader: ({params}) => fetch(`http://localhost:7000/orders/${params.id}`)
+                    loader: ({params}) => fetch(`https://food-court-server-three.vercel.app/orders/${params.id}`)
                 },
                 
 
@@ -116,7 +116,7 @@ const Route = () => {
                 },
                 {
                     path: '/dashboard/orders/payment/:id', element: <Payment></Payment>,
-                    loader: ({params}) => fetch(`http://localhost:7000/orders/${params.id}`)
+                    loader: ({params}) => fetch(`https://food-court-server-three.vercel.app/orders/${params.id}`)
                 },
                 {
                     path: '/dashboard/add-product',   element:<AddProduct></AddProduct>

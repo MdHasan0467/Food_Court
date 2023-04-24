@@ -30,6 +30,10 @@ const Category = () => {
 
 
 
+  const [getCategoryDesert, setGetCategoryDesert] = useState()
+
+
+
 
 
   const [getCategoryDrinks, setGetCategoryDrinks] = useState()
@@ -62,7 +66,7 @@ const Category = () => {
        
           useEffect(() => {
             axios
-            .get('http://localhost:7000/category/Chinese')
+            .get('https://food-court-server-three.vercel.app/category/Chinese')
             .then((data) => {
               console.log('Chinese',data);
               if (data.data !== undefined) {
@@ -89,7 +93,7 @@ const Category = () => {
        
         useEffect(() => {
           axios
-          .get('http://localhost:7000/category/Rice')
+          .get('https://food-court-server-three.vercel.app/category/Rice')
           .then((data) => {
             console.log('Rice',data);
             if (data.data !== undefined) {
@@ -118,7 +122,7 @@ const Category = () => {
   
           useEffect(() => {
             axios
-            .get('http://localhost:7000/category/Drinks')
+            .get('https://food-court-server-three.vercel.app/category/Drinks')
             .then((data) => {
               console.log('Drinks',data);
               if (data.data !== undefined) {
@@ -154,13 +158,38 @@ const Category = () => {
        
           useEffect(() => {
             axios
-            .get('http://localhost:7000/category/Chicken')
+            .get('https://food-court-server-three.vercel.app/category/Chicken')
             .then((data) => {
               console.log('Chicken',data);
               if (data.data !== undefined) {
                 // console.log(typeof data.data);
                 // console.log(data.data);
                 setGetCategoryChicken(data.data[0]);
+              }
+            });
+                },[])
+           
+      
+        
+
+
+
+      
+        
+
+ 
+        // Make a request for Desert category
+  
+       
+          useEffect(() => {
+            axios
+            .get('https://food-court-server-three.vercel.app/category/Desert')
+            .then((data) => {
+              console.log('Desert',data);
+              if (data.data !== undefined) {
+                // console.log(typeof data.data);
+                // console.log(data.data);
+                setGetCategoryDesert(data.data[0]);
               }
             });
                 },[])
@@ -187,6 +216,8 @@ const Category = () => {
         <SelectCategory />
         </div>
         <div className='blurEffect text-start pb-10'>
+
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-center">
             
             
@@ -199,9 +230,35 @@ const Category = () => {
 
     
 
-         {/* Chinese Category */}      
+
+         {/* Desert Category */}     
+         {getCategoryDesert?.image && 
           <div className="card h-[600px]  mx-5 group bg-base-100 shadow-xl">
-          <img className='w-full h-80' src={getCategoryChinese?.image} alt="img" />
+          <img className='w-full h-80' src={getCategoryDesert?.image} alt="Desert" />
+          <div className="card-body">
+              <h2 className="card-title flex justify-between"> <p>{getCategoryDesert?.title}</p> <p>${getCategoryDesert?.price}</p></h2>
+              <p>Category: {getCategoryDesert?.category}</p>
+              <p className='border p-2'>{getCategoryDesert?.description}</p>
+              
+            <div className="card-actions justify-end">
+              <Link to={getCategoryDesert?.category}>
+              <button title='See details' className="text-4xl text-white   group-hover:text-violet-700">
+              <BsArrowRightShort></BsArrowRightShort>
+              </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+        }
+      
+    
+    
+
+            
+         {/* Chinese Category */}     
+         {getCategoryChinese?.image && 
+          <div className="card h-[600px]  mx-5 group bg-base-100 shadow-xl">
+          <img className='w-full h-80' src={getCategoryChinese?.image} alt="Chinese" />
           <div className="card-body">
               <h2 className="card-title flex justify-between"> <p>{getCategoryChinese?.title}</p> <p>${getCategoryChinese?.price}</p></h2>
               <p>Category: {getCategoryChinese?.category}</p>
@@ -216,15 +273,16 @@ const Category = () => {
             </div>
           </div>
         </div>
-        
+        }
       
     
     
 
             
-         {/* Chicken Category */}      
+         {/* Chicken Category */}
+         {getCategoryChicken?.image &&      
           <div className="card h-[600px]  mx-5 group bg-base-100 shadow-xl">
-          <img className='w-full h-80' src={getCategoryChicken?.image} alt="img" />
+          <img className='w-full h-80' src={getCategoryChicken?.image} alt="Chicken" />
           <div className="card-body">
               <h2 className="card-title flex justify-between"> <p>{getCategoryChicken?.title}</p> <p>${getCategoryChicken?.price}</p></h2>
               <p>Category: {getCategoryChicken?.category}</p>
@@ -239,15 +297,16 @@ const Category = () => {
             </div>
           </div>
         </div>
-        
+        }
       
     
     
 
             
          {/* Rice Category */}      
+         {getCategoryRice?.image &&
           <div className="card h-[600px]  mx-5 group bg-base-100 shadow-xl">
-          <img className='w-full h-80' src={getCategoryRice?.image} alt="img" />
+          <img className='w-full h-80' src={getCategoryRice?.image} alt="Rice" />
           <div className="card-body">
               <h2 className="card-title flex justify-between"> <p>{getCategoryRice?.title}</p> <p>${getCategoryRice?.price}</p></h2>
               <p>Category: {getCategoryRice?.category}</p>
@@ -262,15 +321,16 @@ const Category = () => {
             </div>
           </div>
         </div>
-        
+        }
       
     
     
 
             
          {/* Drinks Category */}      
+         {getCategoryDrinks?.image &&
           <div className="card h-[600px]  mx-5 group bg-base-100 shadow-xl">
-          <img className='w-full h-80' src={getCategoryDrinks?.image} alt="img" />
+          <img className='w-full h-80' src={getCategoryDrinks?.image} alt="Drink" />
           <div className="card-body">
               <h2 className="card-title flex justify-between"> <p>{getCategoryDrinks?.title}</p> <p>${getCategoryDrinks?.price}</p></h2>
               <p>Category: {getCategoryDrinks?.category}</p>
@@ -285,7 +345,7 @@ const Category = () => {
             </div>
           </div>
         </div>
-        
+        }
       
     
     

@@ -30,7 +30,7 @@ const MyWishes = () => {
   
        
 			useEffect(() => {
-				fetch(`http://localhost:7000/my-wish/${user?.email}`)
+				fetch(`https://food-court-server-three.vercel.app/my-wish/${user?.email}`)
 					.then((res) => res.json())
 					.then((result) => {
 						setWishList(result);
@@ -52,7 +52,7 @@ const MyWishes = () => {
 			  //* Make a request for data with a given ID
 			 
 				axios
-				  .get(`http://localhost:7000/product-wish/${id}`)
+				  .get(`https://food-court-server-three.vercel.app/product-wish/${id}`)
 					.then((data) => {
 					  console.log(data);
 					if (data.data !== undefined) {
@@ -73,7 +73,7 @@ const MyWishes = () => {
 		  
 				//* ================== Data post ==================
 		  
-				fetch('http://localhost:7000/order-product', {
+				fetch('https://food-court-server-three.vercel.app/order-product', {
 				  method: 'POST',
 				  headers: {
 					'content-type': 'application/json',

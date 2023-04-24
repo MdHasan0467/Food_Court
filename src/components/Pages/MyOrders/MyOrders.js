@@ -25,7 +25,7 @@ const MyOrders = () => {
   
        
 			useEffect(() => {
-				fetch(`http://localhost:7000/my-orders/${user?.email}`)
+				fetch(`https://food-court-server-three.vercel.app/my-orders/${user?.email}`)
 					.then((res) => res.json())
 					.then((result) => {
 						console.log(result);

@@ -11,11 +11,7 @@ const AddProduct = () => {
 
 
 
-	const {
-		register,
-		handleSubmit,
-		formState: { errors },
-	} = useForm();
+	const { register, handleSubmit, formState: { errors } } = useForm();
 
 
 
@@ -111,7 +107,7 @@ const AddProduct = () => {
 									
 
 					//! Save addedProducts info to the database....
-					fetch('http://localhost:7000/products', {
+					fetch('https://food-court-server-three.vercel.app/products', {
 						method: 'POST',
 						headers: {
 							'content-type': 'application/json',
@@ -144,7 +140,7 @@ const AddProduct = () => {
 						
 
 					//! Save addedProducts info to the database....
-					fetch('http://localhost:7000/products', {
+					fetch('https://food-court-server-three.vercel.app/products', {
 						method: 'POST',
 						headers: {
 							'content-type': 'application/json',
@@ -177,10 +173,10 @@ const AddProduct = () => {
 							
 						};
 						
-						
+						console.log(addedProduct);
 
 					//! Save addedProducts info to the database....
-					fetch('http://localhost:7000/products', {
+					fetch('https://food-court-server-three.vercel.app/products', {
 						method: 'POST',
 						headers: {
 							'content-type': 'application/json',
@@ -189,6 +185,7 @@ const AddProduct = () => {
 					})
 						.then((res) => res.json())
 						.then((result) => {
+							// console.log(result);
 							toast.success('Successfully created a new Product!!');
 						});
 
@@ -255,6 +252,7 @@ const AddProduct = () => {
 										<option>Drinks</option>
 										<option>Rice</option>
 										<option>Chicken</option>
+										<option>Desert</option>
 									</select>
 									{errors.category && (
 										<p className='text-red-500'>{errors.category.message}</p>

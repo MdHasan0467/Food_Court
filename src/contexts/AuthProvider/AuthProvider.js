@@ -27,7 +27,7 @@ const AuthProvider = ({children}) => {
     // ! Get login User from database
 
     useEffect(() => {
-		fetch(`http://localhost:7000/${user?.email}`)
+		fetch(`https://food-court-server-three.vercel.app/${user?.email}`)
 			.then((res) => res.json())
 			.then((result) => {
 				setLogUser(result);

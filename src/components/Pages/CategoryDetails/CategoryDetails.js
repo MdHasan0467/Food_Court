@@ -36,7 +36,7 @@ const CategoryDetails = () => {
 
     useEffect(() => {
       axios
-        .get(`http://localhost:7000/products/${gettingData[0]?.category}`)
+        .get(`https://food-court-server-three.vercel.app/products/${gettingData[0]?.category}`)
         .then((data) => {
           if (data.data !== undefined) {
             console.log(data.data);
@@ -57,7 +57,7 @@ const CategoryDetails = () => {
     //* Make a request for data with a given ID
    
       axios
-        .get(`http://localhost:7000/product/${id}`)
+        .get(`https://food-court-server-three.vercel.app/product/${id}`)
         .then((data) => {
           console.log('data', data);
 
@@ -81,7 +81,7 @@ const CategoryDetails = () => {
 
        //* Data post 
 
-      fetch('http://localhost:7000/wish-product', {
+      fetch('https://food-court-server-three.vercel.app/wish-product', {
         method: 'POST',
         headers: {
           'content-type': 'application/json',
@@ -117,7 +117,7 @@ const CategoryDetails = () => {
     //* Make a request for data with a given ID
    
       axios
-        .get(`http://localhost:7000/product/${id}`)
+        .get(`https://food-court-server-three.vercel.app/product/${id}`)
         .then((data) => {
           if (data.data !== undefined) {
             console.log(data.data);
@@ -140,7 +140,7 @@ const CategoryDetails = () => {
 
       //* Data post 
 
-      fetch('http://localhost:7000/order-product', {
+      fetch('https://food-court-server-three.vercel.app/order-product', {
         method: 'POST',
         headers: {
           'content-type': 'application/json',

@@ -5,6 +5,7 @@ import DashboardNavBar from '../../../Shared/DashboardNavBar/DashboardNavBar';
 
 const Dashboard = () => {
     const { logUser } = useContext(AuthContext);
+    
     return (
         <div>
             <DashboardNavBar></DashboardNavBar>

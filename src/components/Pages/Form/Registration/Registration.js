@@ -21,11 +21,7 @@ const Registration = () => {
   
 
 
-	const {
-		register,
-		handleSubmit,
-		formState: { errors },
-	} = useForm();
+	const { register, handleSubmit, formState: { errors } } = useForm();
 
 
 
@@ -93,7 +89,7 @@ const Registration = () => {
 			.then((imgData) => {
 				console.log(imgData);
         if (imgData.success) {
-        //   console.log(imgData.data.url)
+          console.log(imgData.data.url)
 
 
 
@@ -120,7 +116,7 @@ const Registration = () => {
 
 
         //! Save User info to the database....
-					fetch('http://localhost:7000/users', {
+					fetch('https://food-court-server-three.vercel.app/users', {
 						method: 'POST',
 						headers: {
 							'content-type': 'application/json',

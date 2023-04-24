@@ -28,6 +28,12 @@ const Home = () => {
   
   
 	const [getCategoryChinese, setGetCategoryChinese] = useState()
+
+
+
+
+	
+	const [getCategoryDesert, setGetCategoryDesert] = useState()
   
   
   
@@ -45,7 +51,7 @@ const Home = () => {
 		 
 			useEffect(() => {
 			  axios
-			  .get('http://localhost:7000/category/Chinese')
+			  .get('https://food-court-server-three.vercel.app/category/Chinese')
 			  .then((data) => {
 				console.log('Chinese',data);
 				if (data.data !== undefined) {
@@ -72,7 +78,7 @@ const Home = () => {
 		 
 		  useEffect(() => {
 			axios
-			.get('http://localhost:7000/category/Rice')
+			.get('https://food-court-server-three.vercel.app/category/Rice')
 			.then((data) => {
 			  console.log('Rice',data);
 			  if (data.data !== undefined) {
@@ -101,7 +107,7 @@ const Home = () => {
 	
 			useEffect(() => {
 			  axios
-			  .get('http://localhost:7000/category/Drinks')
+			  .get('https://food-court-server-three.vercel.app/category/Drinks')
 			  .then((data) => {
 				console.log('Drinks',data);
 				if (data.data !== undefined) {
@@ -137,7 +143,7 @@ const Home = () => {
 		 
 			useEffect(() => {
 			  axios
-			  .get('http://localhost:7000/category/Chicken')
+			  .get('https://food-court-server-three.vercel.app/category/Chicken')
 			  .then((data) => {
 				console.log('Chicken',data);
 				if (data.data !== undefined) {
@@ -158,21 +164,45 @@ const Home = () => {
   
    
   
+		  // Make a request for Desert category
+	
+		 
+			useEffect(() => {
+			  axios
+			  .get('https://food-court-server-three.vercel.app/category/Desert')
+			  .then((data) => {
+				console.log('Desert',data);
+				if (data.data !== undefined) {
+				  // console.log(typeof data.data);
+				  // console.log(data.data);
+				  setGetCategoryDesert(data.data[0]);
+				}
+			  });
+				  },[])
+			 
+		
+		  
+  
+  
+  
+		
+		  
+  
+   
+  
   
   
     return (
 		<div>
-			<Banner></Banner>
-			{
-				getCategoryChicken && getCategoryDrinks && getCategoryRice && getCategoryChinese &&
-				<Category></Category>
-			}
-			<TrustedBy></TrustedBy>
+		     	<Banner />
+			
+				<Category />
+			
+		    	<TrustedBy />
 
-			<Compatible></Compatible>
+			    <Compatible />
 
-
-			<Footer></Footer>
+			    <Footer />
 			</div>
 		);
 };
