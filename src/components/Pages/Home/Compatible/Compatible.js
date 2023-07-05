@@ -1,8 +1,13 @@
-import React from 'react';
+import Aos from 'aos';
+import 'aos/dist/aos.css'
+import React, { useEffect } from 'react';
 
 const Compatible = () => {
+    useEffect(() => {
+        Aos.init();
+    },[])
     return (
-        <div>
+        <div data-aos="fade-up">
         <section className="dark:bg-gray-800 dark:text-gray-100">
         <div className="container p-6 mx-auto space-y-6 text-center lg:p-8 lg:space-y-8">
             <h2 className="text-3xl font-bold">Fully compatible with</h2>

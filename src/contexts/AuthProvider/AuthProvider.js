@@ -19,6 +19,10 @@ const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
 	const [logUser, setLogUser] = useState();
+// For Filter sorting data
+    const [filteredData, setFilteredData] = useState([]);
+
+    const [hasSearched, setHasSearched] = useState(false);
 
 
 // console.log(logUser);
@@ -30,7 +34,7 @@ const AuthProvider = ({children}) => {
 		fetch(`https://food-court-server-three.vercel.app/${user?.email}`)
 			.then((res) => res.json())
 			.then((result) => {
-				setLogUser(result);
+				setLogUser(result?.result);
 			});
 	}, [user?.email]);
 
@@ -101,7 +105,7 @@ const AuthProvider = ({children}) => {
 
 
 
-    const authInfo = {user, loading, createUser, signIn,logOut,logUser, }
+    const authInfo = {user, loading, createUser, signIn,logOut,logUser,filteredData, setFilteredData, hasSearched, setHasSearched }
 
 
 

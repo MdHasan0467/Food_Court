@@ -1,6 +1,5 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import PrivateRoute from '../../../contexts/Private/PrivateRoute';
 import About from '../../Pages/About/About';
 import AddProduct from '../../Pages/AddProduct/AddProduct';
 import CategoryDetails from '../../Pages/CategoryDetails/CategoryDetails';
@@ -18,12 +17,19 @@ import Dashboard from '../Layouts/Dashboard/Dashboard';
 import DashboardWelcome from '../Layouts/Dashboard/DashboardWelcome/DashboardWelcome';
 import Main from '../Layouts/Main/Main';
 import Others from '../Layouts/Others/Others';
+import AllProducts from '../../Pages/Dashboard/AllProducts/AllProducts';
+import MyProducts from '../../Pages/MyProducts/MyProducts';
+import ForgetPassword from '../../Pages/ForgetPassword/ForgetPassword';
+import DynamicUserRoute from '../../Pages/ForgetPassword/DynamicUserRoute';
 
 const Route = () => {
-    const router = createBrowserRouter([
+    const router = createBrowserRouter(
+        [
+
         {
             path:'/', element: <Main></Main>,
-            children: [
+            children: 
+            [
                 {
                     path: '/',  element:<Home></Home>
                 },
@@ -49,14 +55,14 @@ const Route = () => {
             path:'/',  element: <Others></Others>,
             children: [
             
-               
+            
                 {
                     path: '/:category',  element: <CategoryDetails></CategoryDetails>,
                     loader: ({ params }) => fetch(`https://food-court-server-three.vercel.app/category/${params.category}`)
                 },
                 
                 {
-                    path: '/about',  element:<About></About>
+                    path: '/about',  element:<About />
                 },
                 {
                     path: '/faq',  element:<FAQ></FAQ>
@@ -81,6 +87,10 @@ const Route = () => {
 
 
 
+        {
+            path: '/user/:email',  element: <DynamicUserRoute />,
+            loader: ({ params }) => fetch(`http://localhost:5000/user/${params.email}`)
+        },
 
 
 
@@ -89,7 +99,7 @@ const Route = () => {
 
 
 
-
+        // * Dashboard
         {
             path:'/dashboard',  element: <Dashboard></Dashboard>,
             children: [
@@ -106,10 +116,16 @@ const Route = () => {
                     path: '/dashboard/admin-details',  element: <AdminDetails></AdminDetails>
                 },
                 {
+                    path: '/dashboard/all-products',  element: <AllProducts />
+                },
+                {
                     path: '/dashboard/orders',  element:<MyOrders></MyOrders>
                 },
                 {
                     path: '/dashboard/wishes',  element:<MyWishes></MyWishes>
+                },
+                {
+                    path: '/dashboard/My-Products',  element:<MyProducts />
                 },
                 {
                     path: '/dashboard/update-food-court',  element:<UpdateFoodCourt></UpdateFoodCourt>
@@ -137,12 +153,18 @@ const Route = () => {
 
 
 
+        // * Authentication
         {
             path: '/login',  element:<Login></Login>
         },
         {
             path: '/register',   element:<Registration></Registration>
         },
+        {
+            path: '/forget-password',   element:<ForgetPassword />
+        },
+
+
 
 
 

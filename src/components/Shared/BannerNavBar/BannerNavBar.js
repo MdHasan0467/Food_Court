@@ -13,7 +13,7 @@ const BannerNavBar = () => {
     //!  Current User
     const { user, logOut, logUser } = useContext(AuthContext);
 
-console.log(logUser)
+// console.log(logUser)
   
     //! State for Switch
     const [enabled, setEnabled] = useState(false)

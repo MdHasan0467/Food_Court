@@ -8,8 +8,6 @@ import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 const CategoryDetails = () => {
 
     const gettingData = useLoaderData()
-    // console.log('data', gettingData);
-
 
 
     
@@ -188,10 +186,18 @@ const CategoryDetails = () => {
                 <p className='text-start'> <span className='font-semibold'>Category:</span> {data?.category}</p>
                 <p className='border p-2'>{data?.description}</p>
                 
-                <div className="card-actions justify-end">
-                <button onClick={() => handleOrder(data?._id)} className='flex  bg-fuchsia-500 hover:bg-green-500 border-0 btn'> <span className='w-auto my-auto mx-2'><BsFillCartCheckFill/></span> <span>Buy Now</span></button>
-                <button onClick={() => handleWish(data?._id)} className='flex  bg-violet-500 hover:bg-green-500 border-0 btn'><span className='w-auto my-auto mx-2'><BsFillSuitHeartFill/></span> <span>Add to wish</span></button>
+                {
+                  logUser?
+                  <div className="card-actions justify-end">
+                <button onClick={() => handleOrder(data?._id)} className='flex bg-fuchsia-500 hover:bg-green-500 border-0 w-full btn'> <span className='w-auto my-auto mx-2'><BsFillCartCheckFill/></span> <span>Buy Now</span></button>
+                <button onClick={() => handleWish(data?._id)} className='flex bg-violet-500 hover:bg-green-500 border-0 w-full btn'><span className='w-auto my-auto mx-2'><BsFillSuitHeartFill/></span> <span>Add to wish</span></button>
               </div>
+              :
+              <div className="card-actions justify-end">
+                <p className='text-orange-400'>Please login to buy this food</p>
+              </div>
+                }
+
             </div>
             </div>
                 )}

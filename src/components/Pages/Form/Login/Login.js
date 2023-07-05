@@ -47,6 +47,8 @@ const Login = () => {
 
 
   }
+
+
     return (
         <div>
         <div className="hero min-h-screen bg-base-200">
@@ -55,9 +57,10 @@ const Login = () => {
             <img className='h-96 shadow-2xl rounded-2xl' src="loginFood.png" alt="" />
           </div>
             
-            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <div className="card border-b-4 border-b-rose-400 flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
               <div className="card-body">
                 <h3 className='font-serif text-2xl'>login Now</h3>
+                
             <form onSubmit={handleLogin}>
             <div className="form-control">
                 <label className="label">
@@ -82,7 +85,7 @@ const Login = () => {
              </span>
                 </div>
                 <label className="label">
-                  <p  className="label-text-alt link link-hover hover:underline text-start">Forgot password?</p>
+                  <Link to='/forget-password' className="label-text-alt link link-hover hover:underline text-start">Forgot password?</Link>
                 </label>
               </div>
               

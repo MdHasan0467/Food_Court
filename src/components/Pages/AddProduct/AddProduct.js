@@ -2,11 +2,11 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
-import Loader from '../../Shared/Loader/Loader';
+// import Loader from '../../Shared/Loader/Loader';
 
 const AddProduct = () => {
 
-	const { user, loading, logUser } = useContext(AuthContext);
+	const { user, logUser } = useContext(AuthContext);
 	// console.log(logUser.name);
 
 
@@ -207,10 +207,9 @@ const AddProduct = () => {
 
 
     return (
-        <div className='bg-base-200 rounded-lg'>
-			<br />
-			<h1 className='mb-5 text-2xl'>Add Your Product</h1>
-			<div className='hero min-h-screen bg-base-300'>
+        <div className='bg-base-100 rounded-lg'>
+			<h1 className='p-2 text-2xl'>Add Your Product</h1>
+			<div className='hero min-h-screen bg-base-200'>
 				<div className='hero-content grid grid-cols-1 lg:grid-cols-2-col'>
 					<div className='card grid grid-cols-1 lg:grid-cols-2-shrink-0 w-full max-w-sm shadow-2xl bg-base-100'>
 						<form
@@ -218,7 +217,8 @@ const AddProduct = () => {
 							className='card-body'
 						>
 							
-								<div className='form-control w-full max-w-xs'>
+								<div className="flex">
+								<div className='form-control mx-1 w-full max-w-xs'>
 									<label className='label'>
 										<span className='label-text'>Product Title</span>
 									</label>
@@ -227,7 +227,7 @@ const AddProduct = () => {
 										{...register('title', {
 											required: 'Title is Required',
 										})}
-										className='input input-bordered w-full max-w-xs'
+										className='input input-bordered input-primary focus:outline-none w-full max-w-xs'
 									/>
 									{errors.title && (
 										<p className='text-red-500'>{errors.title?.message}</p>
@@ -237,7 +237,7 @@ const AddProduct = () => {
 							
 							
 								
-								<div className='form-control w-full max-w-xs'>
+								<div className='form-control mx-1 w-full max-w-xs'>
 									<label className='label'>
 										<span className='label-text'>Categories</span>
 									</label>
@@ -245,7 +245,7 @@ const AddProduct = () => {
 										{...register('category', {
 											required: 'Category is Required',
 										})}
-										className='select input-bordered w-full max-w-xs'
+										className='select w-full max-w-xs'
 									>
 										<option disabled>Choose Category</option>
 										<option>Chinese</option>
@@ -258,10 +258,12 @@ const AddProduct = () => {
 										<p className='text-red-500'>{errors.category.message}</p>
 									)}
 								</div>
+								</div>
 							
 							
 								
-								<div className='form-control w-full max-w-xs'>
+								<div className="flex">
+								<div className='form-control mx-1 w-full max-w-xs'>
 									<label className='label'>
 										<span className='label-text'>Price : (Dollar)</span>
 									</label>
@@ -270,7 +272,7 @@ const AddProduct = () => {
 										{...register('price', {
 											required: 'Price is Required',
 										})}
-										className='input input-bordered w-full max-w-xs'
+										className='input input-bordered input-primary focus:outline-none w-full max-w-xs'
 									/>
 									{errors.price && (
 										<p className='text-red-500'>
@@ -280,31 +282,34 @@ const AddProduct = () => {
 								</div>
 							
 							
-							<div className='form-control w-full max-w-xs'>
+							<div className='form-control mx-1 w-full max-w-xs'>
 								<label className='label'>
 									<span className='label-text'>Description</span>
 								</label>
-								<input
+								<input 
 									type='text'
 									{...register('description', {
 										required: 'Description is Required',
 									})}
-									className='input input-bordered w-full max-w-xs'
+									className='input input-bordered input-primary focus:outline-none w-full max-w-xs'
 								/>
 								{errors.description && (
 									<p className='text-red-500'>{errors.description.message}</p>
 								)}
 							</div>
+								</div>
+
+
 							<div className='form-control group w-full max-w-xs'>
 								<label className='label'>
-									<h3 className='label-text'>Choose from Album <span className='text-white group-hover:text-blue-600 group-hover:font-medium'>(Choose 1 - 3  photos)</span></h3>
+									<h3 className='label-text'>Choose from Album <span className='text-blue-600 group-hover:font-medium'>(Choose 1 - 3  photos)</span></h3>
 								</label>
 								<input
 									type='file'
 									{...register('img', {
 										required: 'Photo is Required',
 									})}
-									className='input input-bordered w-full max-w-xs'
+									className=' w-full max-w-xs'
 									multiple
 								/>
 								{errors.img && (

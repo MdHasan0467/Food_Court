@@ -35,8 +35,8 @@ const Banner = () => {
 									<AutoTyping
 									  active // <boolean>
 									  textRef='Food Court Restaurant' // <string>
-									  writeSpeed={150} // <number>
-									  deleteSpeed={150} // <number>
+									//   writeSpeed={150} // <number>
+									//   deleteSpeed={150} // <number>
 									  delayToWrite={1000} // <number>
 									  delayToDelete={2000} // <number>
 									/>

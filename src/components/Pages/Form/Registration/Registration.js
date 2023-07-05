@@ -5,6 +5,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
 import Loader from '../../../Shared/Loader/Loader';
+import ReviewAnimation from "../../../../Assets/Animations/signup-verification.json";
+import Lottie from "lottie-react";
+
+
 
 const Registration = () => {
 
@@ -46,6 +50,7 @@ const Registration = () => {
     
     
     const name = data.name;
+    const number = data.number;
     const email = data.email;
     const password = data.password;
     const role = data.role;
@@ -98,6 +103,7 @@ const Registration = () => {
 
         const addedUser = {
           name,
+		  number,
           email,
           password,
           role,
@@ -147,27 +153,11 @@ const Registration = () => {
 
       })
       .catch(err => console.error(err));
-    
-    
-    
-    
-
-
-    
-
-
-
-
-
-
-
-
-
-    
-
 
 
   }
+
+
 
 
 
@@ -184,26 +174,25 @@ const Registration = () => {
     return (
         <div>
         <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="hero-content flex">
           <div className="text-center lg:text-left">
-           <img className='h-[500px] w-[600px] rounded-2xl' src="signUp-img.png" alt="" />
+           {/* <img className='h-[500px] w-[600px] rounded-2xl' src="signUp-img.png" alt="" /> */}
+		   <div>
+              <Lottie animationData={ReviewAnimation} loop={true}></Lottie>
+            </div>
           </div>
-          <div className="card flex-shrink-0 shadow-2xl bg-base-100">
+          <div className="card border-t-4 border-t-rose-400 flex-shrink-0 shadow-2xl bg-base-100">
               <div className="card-body">
               <h3 className='font-serif text-2xl'>Register Here</h3>
               <form
-							onSubmit={handleSubmit(handleRegister)}
-							className='card-body'
-						>
+				onSubmit={handleSubmit(handleRegister)}
+				className='card-body'
+				>
 							
-								
-								
-							
-							
-								
-								<div className='form-control w-full max-w-xs'>
+				<div className="flex">
+					<div className='form-control mx-1 w-full max-w-xs'>
 									<label className='label'>
-										<span className='label-text'>Full Name :</span>
+										<span className='label-text'>Full Name </span>
 									</label>
 									<input
 										type='text'
@@ -217,38 +206,62 @@ const Registration = () => {
 											{errors.name.message}
 										</p>
 									)}
-                               </div>
+                </div>
 							
                   
 
 
-								<div className='form-control w-full max-w-xs'>
-									<label className='label'>
-										<span className='label-text'>email :</span>
-									</label>
-									<input
-										type='email'
-										{...register('email', {
-											
-										})}
-										className='input input-bordered w-full max-w-xs'
-									/>
-									{errors.email && (
-										<p className='text-red-500'>
-											{errors.email.message}
-										</p>
-									)}
-								</div>
+				<div className='form-control mx-1 w-full max-w-xs'>
+										<label className='label'>
+											<span className='label-text'>Number </span>
+										</label>
+										<input
+											type='number'
+											{...register('number', {
+												
+											})}
+											className='input input-bordered w-full max-w-xs'
+										/>
+										{errors.number && (
+											<p className='text-red-500'>
+												{errors.number.message}
+											</p>
+										)}
+					</div>
+				
+							
+							
+                  
+                  
+				<div className='form-control mx-1 w-full max-w-xs'>
+										<label className='label'>
+											<span className='label-text'>email </span>
+										</label>
+										<input
+											type='email'
+											{...register('email', {
+												
+											})}
+											className='input input-bordered w-full max-w-xs'
+										/>
+										{errors.email && (
+											<p className='text-red-500'>
+												{errors.email.message}
+											</p>
+										)}
+					</div>
+				</div>
 							
 							
                   
                   
                   
-							<div className='form-control w-full max-w-xs'>
+				<di mx-1v className="flex">
+                    <div className='form-control mx-1 w-full max-w-xs'>
 								<label className='label'>
-									<span className='label-text'>Password :</span>
+									<span className='label-text'>Password </span>
 								</label>
-									<div className="flex">
+									<div className="">
 									<input
 								       type={changePassword ? "password" : "text"}
 									{...register('password', {
@@ -264,19 +277,22 @@ const Registration = () => {
 								   setChangePassword(changeIcon);
 								}}
 							 >
-								{changeIcon ? <BsEyeSlashFill /> : <BsEyeFill />}
+								{changeIcon ?
+								 <p className='flex group cursor-pointer'>
+									<span className='mr-2 group-hover:underline'>Hidden Password</span>
+									<BsEyeSlashFill className='mt-1' />
+								 </p> 
+								 :
+								  <p className='flex group cursor-pointer'>
+									<span className='mr-2 group-hover:underline'>Show Password</span>
+									<BsEyeFill className='mt-1' />
+									</p>}
 							 </span>
 									</div>
-                             </div>
+                </div>
                   
-								
-								
-							 
-
-                  
-                  
-                  
-								<div className='form-control w-full max-w-xs'>
+						
+				<div className='form-control mx-1 w-full max-w-xs'>
 								<label className='label'>
 									<span className='label-text'>Who you are ?</span>
 								</label>
@@ -293,14 +309,13 @@ const Registration = () => {
 								{errors.role && (
 									<p className='text-red-500'>{errors.role.message}</p>
 								)}
-								</div>
+					</div>
+                </di>
 
 
-
-
-							<div className='form-control w-full max-w-xs'>
+                <div className='form-control mx-1 w-full max-w-xs'>
 								<label className='label'>
-									<span className='label-text'>Photo:</span>
+									<span className='label-text'>Photo</span>
 								</label>
 								<input
 									type='file'
@@ -313,13 +328,14 @@ const Registration = () => {
 								{errors.img && (
 									<p className='text-red-500'>{errors.img.message}</p>
 								)}
-							</div>
-							<input
-								className='btn bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 border-0 text-white w-full mt-4'
-								value='Register'
-								type='submit'
-							/>
-						</form>
+				</div>
+
+				<input
+					className='btn bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 border-0 text-white w-full mt-4'
+					value='Register'
+					type='submit'
+					/>
+			</form>
                
               <label className="label">
                <a href="#" className="label-text-alt link link-hover">

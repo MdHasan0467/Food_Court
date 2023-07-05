@@ -20,6 +20,7 @@ const Dashboard = () => {
                         <li className='my-5 hover:underline'><Link to='/dashboard/user-profile'>Profile</Link></li>
                         <li className='my-5 hover:underline'><Link to='/dashboard/all-users'>All Users</Link></li>
                         <li className='my-5 hover:underline'><Link to='/dashboard/all-buyers'>All Customers</Link></li>
+                        <li className='my-5 hover:underline'><Link to='/dashboard/all-products'>All Products</Link></li>
                         <li className='my-5 hover:underline'><Link to='/dashboard/all-sellers'>All Sellers</Link></li>
                         <li className='my-5 hover:underline'><Link to='/dashboard/add-product'>Add Product</Link></li>
                         <li className='my-5 hover:underline'><Link to='/dashboard/update-food-court'>Update Food Court</Link></li>
