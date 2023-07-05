@@ -11,7 +11,7 @@ const ForgetPassword = () => {
     const [hasSearched, setHasSearched] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/all-users')
+        fetch('https://food-court-server-three.vercel.app/all-users')
           .then((res) => res.json())
           .then((data) => setData(data?.result))
           .finally(() => {});

@@ -89,7 +89,7 @@ const Route = () => {
 
         {
             path: '/user/:email',  element: <DynamicUserRoute />,
-            loader: ({ params }) => fetch(`http://localhost:5000/user/${params.email}`)
+            loader: ({ params }) => fetch(`https://food-court-server-three.vercel.app/user/${params.email}`)
         },
 
 
