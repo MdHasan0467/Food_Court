@@ -27,6 +27,7 @@ const SearchField = () => {
           return (
             item?.title?.toLowerCase().includes(query) ||
             item?.category?.toLowerCase().includes(query) ||
+            item?.description?.toLowerCase().includes(query) ||
             item?.price?.toLowerCase().includes(query)
           );
         });
@@ -37,6 +38,7 @@ const SearchField = () => {
 
     return (
         <div>
+          <p className='text-start ml-10'>Search any...</p>
             <div
               id="searchBox"
               className="px-4 flex flex-col sm:flex-row justify-center items-start sm:items-center dark:rounded-b-lg"

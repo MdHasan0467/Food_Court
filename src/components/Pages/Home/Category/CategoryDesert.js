@@ -9,12 +9,14 @@ const CategoryDesert = ({getCategoryDesert}) => {
     return (
       <div className=' hover:scale-105 duration-500 cursor-pointer group'>
       <div className=" p-4  rounded-lg bg-white shadow-indigo-50 shadow-md">
+        
             <div
                className="bg-gradient-to-tr from-yellow-500 to-yellow-400 ml-3 md:w-44 md:h-40 w-32 h-32 rounded-xl shadow-2xl shadow-yellow-400 border-white overflow-hidden border-dashed border-2  flex justify-center items-center ">
                <div>
                  <img className='md:w-52 md:h-44 w-32 h-32 object-cover group-hover:scale-110 transition duration-300 ease-in-out' src={getCategoryDesert?.image} alt="" />
                </div>
              </div>
+
              <div>
                
                <h2 className="text-gray-500 text-sm mt-5 text-start">{getCategoryDesert?.category}</h2>

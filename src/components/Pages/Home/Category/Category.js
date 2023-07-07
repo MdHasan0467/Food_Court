@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext} from 'react';
 import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
 import SelectCategory from '../../CategoryDetails/SelectCategory/SelectCategory';
 import FilteredData from './FilteredData';
@@ -8,15 +8,15 @@ import SearchQuery from './SearchQuery';
 
 const Category = () => {
 
-  const { hasSearched,filteredData, sortedData} = useContext(AuthContext)
+  const { hasSearched,filteredData, sortedData, sortedPriceData} = useContext(AuthContext)
 
 
   console.log('sortedData', sortedData);
   console.log('filteredData', filteredData);
 
 
-  const newArray = filteredData.filter(obj1 => {
-    return sortedData.some(obj2 => obj2.title === obj1.title && obj2.price === obj1.price && obj2.category === obj1.category);
+  const newArray = sortedData.filter(obj1 => {
+    return sortedPriceData.some(obj2 =>  obj2.price === obj1.price && obj2.category === obj1.category);
   });
   
   console.log('newArray', newArray);
@@ -34,6 +34,7 @@ const Category = () => {
         {/* Search and sorting */}
         <div className="flex justify-between my-5">
         <SelectCategory />
+
           <SearchField />
         </div>
 
@@ -42,7 +43,7 @@ const Category = () => {
 
 
         {/* Sorted Data Load */}
-          <>
+          <div>
               {
                 newArray && 
                   <div className="flex flex-wrap -m-4 text-center">
@@ -57,22 +58,38 @@ const Category = () => {
                   
                   </div>
               }
+              {/* {hasSearched && newArray?.length === 0 && (
+                <p className='text-center text-2xl'>No results found</p>
+            )} */}
               
-          </>
+          </div>
 
 
          {/* Searching data load */}
-         <>
-            {filteredData?.length > 0 && (
-                <div id="search">
-                  <SearchQuery filteredData={filteredData} />
-                </div>
-              )}
-              
-              {hasSearched && filteredData?.length === 0 && (
-                <p className='text-center text-2xl'>No results found</p>
-            )}
-         </>
+          <div>
+            {
+              filteredData &&
+            <div className="flex flex-wrap -m-4 text-center">
+                    <div>
+                      {filteredData?.length > 0 && (
+                          <div id="search"  className="p-4 my-5 w-full mx-auto grid grid-cols-1 md:grid-cols-3 gap-5">
+                            {
+                              filteredData?.map((data, idx) => <SearchQuery key={idx} data={data} /> )
+                            }
+                            
+                          </div>
+                        )}
+                        
+                        
+                  </div>
+            </div>
+            }
+          </div>
+
+         {/* No results found For Search and Sorted Data */}
+          {hasSearched && filteredData?.length === 0 && newArray.length === 0 && (
+            <p className='text-center text-2xl'>No results found</p>
+          )}
 
 
       {/* Category Wise Data Load */}

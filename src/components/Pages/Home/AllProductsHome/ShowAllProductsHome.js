@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { BsFillBookmarkFill, BsFillBookmarkHeartFill } from 'react-icons/bs';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
 import Aos from 'aos';
@@ -139,7 +139,9 @@ const ShowAllProductsHome = ({data}) => {
                    Buy Now
                  </button>
                  :
-                 <p className='text-green-400 mt-5'>Please login to buy this product</p>
+                 <Link to = "/authentication/login" className='text-green-400 mt-10 hover:text-blue-500'>
+                 Login to buy this product
+               </Link>
                  }
 
                </div>

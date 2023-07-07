@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { BsFillBookmarkFill, BsFillBookmarkHeartFill } from 'react-icons/bs';
 
 const FilteredData = ({data}) => {
@@ -130,7 +130,9 @@ const FilteredData = ({data}) => {
                         Buy Now
                       </button>
                       :
-                      <p className='text-orange-400 mt-5'>Login to buy this product</p>
+                      <Link to = "/authentication/login" className='text-orange-400 mt-10 hover:text-blue-500'>
+                      Login to buy this product
+                      </Link>
                       }
                       
                     </div>

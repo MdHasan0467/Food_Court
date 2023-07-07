@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { BsFillBookmarkFill, BsFillBookmarkHeartFill } from 'react-icons/bs';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Aos from 'aos';
 import 'aos/dist/aos.css'
@@ -152,7 +152,9 @@ const ShowRecentFood = ({data}) => {
                  Buy Now
                  </button>
                  :
-                 <p className='text-cyan-400 mt-5'>Please login to buy this product</p>
+                 <Link to = "/authentication/login" className='text-cyan-400 mt-10 hover:text-blue-500'>
+                 Login to buy this product
+               </Link>
                 }
                  
                </div>

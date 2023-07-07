@@ -1,6 +1,6 @@
 import axios from 'axios';
-import React, { useContext, useEffect, useState } from 'react';
-import { BsFillBookmarkFill, BsFillBookmarkHeartFill, BsFillCartCheckFill, BsFillSuitHeartFill } from 'react-icons/bs';
+import React, { useContext, useState } from 'react';
+import { BsFillBookmarkFill, BsFillBookmarkHeartFill } from 'react-icons/bs';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
@@ -201,6 +201,7 @@ const CategoryDetails = () => {
                
                <div>
                  <h2 className="text-gray-900 text-lg text-start mt-3 font-bold">{data?.title}</h2>
+                 <h2 className="text-orange-400 text-md text-start font-semibold">${data?.price}</h2>
                  <h2 className="text-gray-500 text-sm text-start">{data?.category}</h2>
                  
                 {
@@ -209,7 +210,9 @@ const CategoryDetails = () => {
                  Buy Now
                  </button>
                  :
-                 <p className='text-orange-400 mt-5'>Please login to buy this product</p>
+                  <Link to = "/authentication/login" className='text-orange-400 mt-10 hover:text-blue-500'>
+                    Login to buy this product
+                  </Link>
                 }
                  
                </div>
