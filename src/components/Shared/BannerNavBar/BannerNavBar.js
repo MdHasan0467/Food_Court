@@ -31,7 +31,7 @@ const BannerNavBar = () => {
     //!  Logout
     const handleLogOut = () => {
         logOut();
-        navigate('/login');
+        navigate('/authentication/login');
         toast.error('LogOut');
     }
 
@@ -79,7 +79,7 @@ const BannerNavBar = () => {
                 Dashboard
 			  		</Link>
             :
-            <Link className=' ml-5 nav hover:text-white' to='/login'>
+            <Link className=' ml-5 nav hover:text-white' to='/authentication/login'>
                 Login
 			  		</Link>
             }
@@ -107,7 +107,7 @@ const BannerNavBar = () => {
         <div className="dropdown dropdown-end tooltip tooltip-left tooltip-primary" data-tip="Click here">
         <label tabIndex={0} className="btn btn-ghost btn-circle avatar online">
           <div className="w-16 rounded-full ring ring-primary hover:ring-secondary ring-offset-base-100 ring-offset-2">
-            <img className=""  src={logUser?.image} />
+            <img alt="img"  src={logUser?.image} />
           </div>
         </label>
         <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">

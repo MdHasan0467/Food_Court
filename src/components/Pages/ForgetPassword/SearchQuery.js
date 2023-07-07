@@ -1,12 +1,8 @@
 import React from "react";
 // import Loader from "../../Shared/Loader";
-import {
-  BsArrowRight,
-  BsFillPersonFill,
-  BsHourglassSplit,
-} from "react-icons/bs";
+import { BsFillPersonFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import { FaBookReader } from "react-icons/fa";
+// import { FaBookReader } from "react-icons/fa";
 // import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const SearchQuery = ({filteredData}) => {
@@ -28,7 +24,7 @@ const SearchQuery = ({filteredData}) => {
         {filteredData?.map((value, idx) => (
           <div key={idx}>
             <div className="bg-gradient-to-l hover:bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-lg">
-            <Link to={`/user/${value?.email}`} className=" shadow-md border text-start">
+            <Link to={`/authentication/user/${value?.email}`} className=" shadow-md border text-start">
               <div className=" flex justify-center">
               <img
                 className=" h-[150px] w-[150px] rounded-full"

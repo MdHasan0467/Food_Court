@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
 import SelectCategory from '../../CategoryDetails/SelectCategory/SelectCategory';
 import FilteredData from './FilteredData';
@@ -8,7 +8,20 @@ import SearchQuery from './SearchQuery';
 
 const Category = () => {
 
-  const { hasSearched,filteredData} = useContext(AuthContext)
+  const { hasSearched,filteredData, sortedData} = useContext(AuthContext)
+
+
+  console.log('sortedData', sortedData);
+  console.log('filteredData', filteredData);
+
+
+  const newArray = filteredData.filter(obj1 => {
+    return sortedData.some(obj2 => obj2.title === obj1.title && obj2.price === obj1.price && obj2.category === obj1.category);
+  });
+  
+  console.log('newArray', newArray);
+
+
 
 
   
@@ -31,10 +44,10 @@ const Category = () => {
         {/* Sorted Data Load */}
           <>
               {
-                filteredData && 
+                newArray && 
                   <div className="flex flex-wrap -m-4 text-center">
                     <div className="p-4 my-5 w-full mx-auto grid grid-cols-1 md:grid-cols-3 gap-5">
-                    {filteredData?.map((data, idx) => {
+                    {newArray?.map((data, idx) => {
                   return (
                     <FilteredData key={idx} data = {data} />
                   );
@@ -44,6 +57,7 @@ const Category = () => {
                   
                   </div>
               }
+              
           </>
 
 

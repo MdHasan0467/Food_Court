@@ -7,7 +7,7 @@ import { BsFillBookmarkFill, BsFillBookmarkHeartFill } from 'react-icons/bs';
 
 const FilteredData = ({data}) => {
     
-    const {logUser} = useContext(AuthContext)
+    const {logUser, user} = useContext(AuthContext)
 
     const navigate = useNavigate()
 
@@ -123,15 +123,26 @@ const FilteredData = ({data}) => {
                       <h2 className="text-gray-500 text-sm text-start">{data?.category}</h2>
                       <h3 className="mt-2 text-xl font-bold text-orange-500 text-left">$ {data?.price}</h3>
                       <p className="text-sm font-semibold text-gray-400 text-start">{data?.description}</p>
-                      
+
+                      {
+                        user?.email ?
                       <button onClick={() => handleOrder(data?._id)} className="text-sm mt-6 px-4 py-2 bg-orange-400 flex justify-start text-white rounded-lg tracking-wider hover:bg-orange-300 outline-none">
                         Buy Now
                       </button>
+                      :
+                      <p className='text-orange-400 mt-5'>Login to buy this product</p>
+                      }
+                      
                     </div>
                     <div>
                     <div className="text-2xl flex justify-end mb-2">
-                    <BsFillBookmarkFill className={click ? "hidden" : "flex text-orange-500"} onClick={() => handleWish(data?._id)} />
-                    <BsFillBookmarkHeartFill className={click ? "flex text-orange-500" : "hidden"} onClick={() => handleWish(data?._id)} />
+                    {
+                      user?.email &&
+                      <>
+                      <BsFillBookmarkFill title='Wish Now' className={click ? "hidden" : "flex text-orange-500"} onClick={() => handleWish(data?._id)} />
+                    <BsFillBookmarkHeartFill title='Wish Now' className={click ? "flex text-orange-500" : "hidden"} onClick={() => handleWish(data?._id)} />
+                      </>
+                    }
                     </div>
                     <div
                       className="bg-gradient-to-tr from-orange-500 to-orange-400 w-32 h-32  rounded-full shadow-2xl shadow-orange-400 border-white overflow-hidden border-dashed border-2  flex justify-center items-center ">

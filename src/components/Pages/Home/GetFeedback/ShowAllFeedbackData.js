@@ -7,7 +7,7 @@ const ShowAllFeedbackData = ({data, setModalData}) => {
 
 
    
-  // By Clicking see all button display all categories data and by clicking close button hidden all categories data
+  // By Clicking See All button display all categories data and by clicking close button hidden all categories data
 
   const [, setCategoryData] = useState([]);
 
@@ -147,7 +147,7 @@ const ShowAllFeedbackData = ({data, setModalData}) => {
             ) : (
               <button
                 className="hover:underline group text-[#1AA3D0] dark:text-[#1AA3D0] font-bold text-2xl flex mx-auto w-sm mb-4 lg:mb-0"
-                title="See all"
+                title="See All"
                 onClick={handleShowAllClick}
               >
                 See All Reviews

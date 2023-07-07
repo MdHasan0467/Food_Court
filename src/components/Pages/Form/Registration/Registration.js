@@ -181,7 +181,7 @@ const Registration = () => {
               <Lottie animationData={ReviewAnimation} loop={true}></Lottie>
             </div>
           </div>
-          <div className="card border-t-4 border-t-rose-400 flex-shrink-0 shadow-2xl bg-base-100">
+          <div className="card border-t-4 border-t-rose-400 flex-shrink-0 shadow-2xl bg-base-100 w-1/2">
               <div className="card-body">
               <h3 className='font-serif text-2xl'>Register Here</h3>
               <form
@@ -209,28 +209,6 @@ const Registration = () => {
                 </div>
 							
                   
-
-
-				<div className='form-control mx-1 w-full max-w-xs'>
-										<label className='label'>
-											<span className='label-text'>Number </span>
-										</label>
-										<input
-											type='number'
-											{...register('number', {
-												
-											})}
-											className='input input-bordered w-full max-w-xs'
-										/>
-										{errors.number && (
-											<p className='text-red-500'>
-												{errors.number.message}
-											</p>
-										)}
-					</div>
-				
-							
-							
                   
                   
 				<div className='form-control mx-1 w-full max-w-xs'>
@@ -313,6 +291,31 @@ const Registration = () => {
                 </di>
 
 
+				<div className="flex">
+					
+
+				<div className='form-control mx-1 w-full max-w-xs'>
+										<label className='label'>
+											<span className='label-text'>Number </span>
+										</label>
+										<input
+											type='number'
+											{...register('number', {
+												
+											})}
+											className='input input-bordered w-full max-w-xs'
+										/>
+										{errors.number && (
+											<p className='text-red-500'>
+												{errors.number.message}
+											</p>
+										)}
+					</div>
+				
+							
+							
+
+
                 <div className='form-control mx-1 w-full max-w-xs'>
 								<label className='label'>
 									<span className='label-text'>Photo</span>
@@ -330,6 +333,8 @@ const Registration = () => {
 								)}
 				</div>
 
+				</div>
+
 				<input
 					className='btn bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 border-0 text-white w-full mt-4'
 					value='Register'
@@ -339,7 +344,7 @@ const Registration = () => {
                
               <label className="label">
                <a href="#" className="label-text-alt link link-hover">
-                   <Link to='/login'>Already have an account?</Link>
+                   <Link to='/authentication/login'>Already have an account?</Link>
                </a>
               </label>
              </div>

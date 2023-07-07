@@ -20,6 +20,8 @@ const AuthProvider = ({children}) => {
     const [loading, setLoading] = useState(true)
 	const [logUser, setLogUser] = useState();
 // For Filter sorting data
+    const [sortedData, setSortedData] = useState([]);
+
     const [filteredData, setFilteredData] = useState([]);
 
     const [hasSearched, setHasSearched] = useState(false);
@@ -105,7 +107,10 @@ const AuthProvider = ({children}) => {
 
 
 
-    const authInfo = {user, loading, createUser, signIn,logOut,logUser,filteredData, setFilteredData, hasSearched, setHasSearched }
+    const authInfo = {
+        user, loading, createUser, signIn,logOut,logUser,filteredData,
+        setFilteredData, hasSearched, setHasSearched, sortedData, setSortedData
+     }
 
 
 

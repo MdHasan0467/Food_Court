@@ -9,7 +9,7 @@ import 'aos/dist/aos.css'
 
 const ShowBestFood = ({data}) => {
         
-    const {logUser} = useContext(AuthContext)
+    const {logUser, user} = useContext(AuthContext)
 
     const navigate = useNavigate()
 
@@ -132,8 +132,16 @@ const ShowBestFood = ({data}) => {
                </div>
 
                <div className="text-2xl flex justify-end mb-2">
-               <BsFillBookmarkFill className={click ? "hidden" : "flex text-orange-500"} onClick={() => handleWish(data)} />
-               <BsFillBookmarkHeartFill className={click ? "flex text-orange-500" : "hidden"} onClick={() => handleWish(data)} />
+               
+               {
+                user?.email ?
+                <>
+                <BsFillBookmarkFill title='Wish Now' className={click ? "hidden" : "flex text-orange-500"} onClick={() => handleWish(data)} />
+               <BsFillBookmarkHeartFill title='Wish Now' className={click ? "flex text-orange-500" : "hidden"} onClick={() => handleWish(data)} />
+                </>
+                :
+                <></>
+               }
                </div>
               </div>
                
@@ -141,13 +149,18 @@ const ShowBestFood = ({data}) => {
                  <h2 className="text-gray-900 text-lg text-start mt-3 font-bold">{data?.title}</h2>
                  <h2 className="text-gray-500 text-sm text-start">{data?.category}</h2>
                  
-                <button onClick={() => handleOrder(data?._id)} className="text-sm mt-6 justify-center flex px-4 py-2 bg-orange-400 text-white rounded-lg w-full tracking-wider hover:bg-orange-300 outline-none">
+                {
+                  user?.email ?
+                  <button onClick={() => handleOrder(data?._id)} className="text-sm mt-6 justify-center flex px-4 py-2 bg-orange-400 text-white rounded-lg w-full tracking-wider hover:bg-orange-300 outline-none">
                  Buy Now
                  </button>
+                 :
+                 <p className='text-orange-400 mt-5'>Please login to buy this product</p>
+                }
                  
                </div>
                
-             </div>
+            </div>
         </div>
     );
 };

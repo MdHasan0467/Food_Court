@@ -28,8 +28,8 @@ const MyOrders = () => {
 				fetch(`https://food-court-server-three.vercel.app/my-orders/${user?.email}`)
 					.then((res) => res.json())
 					.then((result) => {
-						console.log(result);
-						setOrderList(result);
+						console.log(result?.result);
+						setOrderList(result?.result);
 					});
 			}, [user?.email]);
 	
@@ -45,7 +45,7 @@ const MyOrders = () => {
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-10">
 			{
 				orderList?.map((data) => 
-				<div className="card h-[600px] max-w-md mx-5 group bg-base-100 shadow-xl">
+				<div key={data?._id} className="card h-[600px] max-w-md mx-5 group bg-base-100 shadow-xl">
 				<img className='w-full h-80' src={data?.image} alt="img" />
 				<div className="card-body">
 
@@ -57,7 +57,7 @@ const MyOrders = () => {
 				<p className='border p-2'>{data?.description}</p>
 				
 				<div className="card-actions justify-end">
-				<Link to={`payment/${data._id}`}>
+				<Link to={`/orders/payment/${data._id}`}>
 				<button className='flex  bg-green-500 hover:bg-fuchsia-500 border-0 btn'> <span className='w-auto my-auto mx-2'><BsFillCursorFill/></span> <span>Pay</span></button>
 				</Link>
 			  </div>

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
-import { BsFillCartCheckFill, BsFillSuitHeartFill } from 'react-icons/bs';
+import { BsFillBookmarkFill, BsFillBookmarkHeartFill, BsFillCartCheckFill, BsFillSuitHeartFill } from 'react-icons/bs';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
@@ -10,17 +10,17 @@ const CategoryDetails = () => {
     const gettingData = useLoaderData()
 
 
-    
+    console.log(gettingData?.result);
 
-     const {logUser} = useContext(AuthContext)
-
-
+     const {logUser,user} = useContext(AuthContext)
 
 
 
 
 
-    const [getData, setGetData] = useState()
+
+
+    // const [getData, setGetData] = useState()
     // const [wishData, setWishData] = useState()
   
   
@@ -32,18 +32,18 @@ const CategoryDetails = () => {
     // Make a request for data with a given ID
 
 
-    useEffect(() => {
-      axios
-        .get(`https://food-court-server-three.vercel.app/products/${gettingData[0]?.category}`)
-        .then((data) => {
-          if (data.data !== undefined) {
-            console.log(data.data);
-            setGetData(data.data);
-          }
-        });
-    }, [gettingData[0]?.category]);
+    // useEffect(() => {
+    //   axios
+    //     .get(`https://food-court-server-three.vercel.app/products/${gettingData[0]?.category}`)
+    //     .then((data) => {
+    //       if (data.result !== undefined) {
+    //         console.log(data.result);
+    //         setGetData(data.result);
+    //       }
+    //     });
+    // }, [gettingData[0]?.category]);
   
-    
+    const [click, setClick] = useState()
 
 
 
@@ -88,6 +88,7 @@ const CategoryDetails = () => {
       })
         .then((res) => res.json())
         .then((result) => {
+          setClick('active')
           navigate('/wishes')
           toast.success(`Successfully added your new wish ${data.data.title}`);
         });
@@ -174,31 +175,45 @@ const CategoryDetails = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-center">
             {
-                getData?.map((data) => 
-                <div className="card h-[600px]  mx-5 group bg-base-100 shadow-xl">
-                <img className='w-full h-80' src={data?.image} alt="img" />
-                <div className="card-body">
+                gettingData?.result?.map((data) => 
+                <div className=" p-4  rounded-lg bg-white shadow-indigo-50 shadow-md">
+              <div className='flex justify-between'>
+              <div
+                 className="bg-gradient-to-tr from-orange-500 to-orange-400 md:w-80 md:h-60 w-32 h-32 rounded-xl shadow-2xl shadow-orange-400 border-white overflow-hidden border-dashed border-2  flex justify-center items-center ">
+                 <div>
+                   <img className='md:w-96 md:h-72 w-32 h-32 object-cover group-hover:scale-110 transition duration-300 ease-in-out' src={data?.image} alt="" />
+                 </div>
+               </div>
 
-                <div className="flex">
-                <h2 className="card-title">{data?.title}</h2>
-                <p className='font-semibold text-fuchsia-500 text-2xl'>( ${data?.price} )</p>
-                </div>
-                <p className='text-start'> <span className='font-semibold'>Category:</span> {data?.category}</p>
-                <p className='border p-2'>{data?.description}</p>
-                
+               <div className="text-2xl flex justify-end mb-2">
+               
+               {
+                user?.email ?
+                <>
+                <BsFillBookmarkFill title='Wish Now' className={click ? "hidden" : "flex text-orange-500"} onClick={() => handleWish(data)} />
+               <BsFillBookmarkHeartFill title='Wish Now' className={click ? "flex text-orange-500" : "hidden"} onClick={() => handleWish(data)} />
+                </>
+                :
+                <></>
+               }
+               </div>
+              </div>
+               
+               <div>
+                 <h2 className="text-gray-900 text-lg text-start mt-3 font-bold">{data?.title}</h2>
+                 <h2 className="text-gray-500 text-sm text-start">{data?.category}</h2>
+                 
                 {
-                  logUser?
-                  <div className="card-actions justify-end">
-                <button onClick={() => handleOrder(data?._id)} className='flex bg-fuchsia-500 hover:bg-green-500 border-0 w-full btn'> <span className='w-auto my-auto mx-2'><BsFillCartCheckFill/></span> <span>Buy Now</span></button>
-                <button onClick={() => handleWish(data?._id)} className='flex bg-violet-500 hover:bg-green-500 border-0 w-full btn'><span className='w-auto my-auto mx-2'><BsFillSuitHeartFill/></span> <span>Add to wish</span></button>
-              </div>
-              :
-              <div className="card-actions justify-end">
-                <p className='text-orange-400'>Please login to buy this food</p>
-              </div>
+                  user?.email ?
+                  <button onClick={() => handleOrder(data?._id)} className="text-sm mt-6 justify-center flex px-4 py-2 bg-orange-400 text-white rounded-lg w-full tracking-wider hover:bg-orange-300 outline-none">
+                 Buy Now
+                 </button>
+                 :
+                 <p className='text-orange-400 mt-5'>Please login to buy this product</p>
                 }
-
-            </div>
+                 
+               </div>
+               
             </div>
                 )}
         </div>

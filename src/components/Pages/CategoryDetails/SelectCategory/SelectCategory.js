@@ -3,7 +3,7 @@ import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
 
 const SelectCategory = () => {
 
-  const { setFilteredData } = useContext(AuthContext)
+  const { setSortedData } = useContext(AuthContext)
   const [products, setProducts] = useState([]);
 
 
@@ -45,7 +45,8 @@ console.log(products);
         item?.category?.toLowerCase().includes(query)
       );
     });
-    setFilteredData(filtered);
+    setSortedData(filtered);
+    // setFilteredData(filtered);
     console.log(filtered);
   }
 

@@ -9,7 +9,7 @@ import 'aos/dist/aos.css'
 
 const ShowAllProductsHome = ({data}) => {
         
-    const {logUser} = useContext(AuthContext)
+    const {logUser, user} = useContext(AuthContext)
 
     const navigate = useNavigate()
 
@@ -133,17 +133,29 @@ const ShowAllProductsHome = ({data}) => {
                     {data?.description}
                  </p>
                  
-                 <button onClick={() => handleOrder(data)} className="text-sm mt-6 px-4 py-2 bg-green-400 flex justify-start text-white rounded-lg tracking-wider hover:bg-green-300 outline-none">
+                 {
+                  user?.email ?
+                  <button onClick={() => handleOrder(data)} className="text-sm mt-6 px-4 py-2 bg-green-400 flex justify-start text-white rounded-lg tracking-wider hover:bg-green-300 outline-none">
                    Buy Now
                  </button>
+                 :
+                 <p className='text-green-400 mt-5'>Please login to buy this product</p>
+                 }
 
                </div>
 
                <div>
                 
                <div className="text-2xl flex justify-end mb-2">
-               <BsFillBookmarkFill className={click ? "hidden" : "flex text-green-500"} onClick={() => handleWish(data)} />
-               <BsFillBookmarkHeartFill className={click ? "flex text-green-500" : "hidden"} onClick={() => handleWish(data)} />
+               {
+                user?.email ?
+                <>
+                <BsFillBookmarkFill title='Wish Now' className={click ? "hidden" : "flex text-green-500"} onClick={() => handleWish(data)} />
+               <BsFillBookmarkHeartFill title='Wish Now' className={click ? "flex text-green-500" : "hidden"} onClick={() => handleWish(data)} />
+                </>
+                :
+                <></>
+               }
                </div>
 
                <div

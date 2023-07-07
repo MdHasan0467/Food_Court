@@ -1,6 +1,6 @@
 import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
 import React, { useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import app from '../../Firebase/Firebase.init';
 import { toast } from 'react-toastify';
 
@@ -11,6 +11,9 @@ const auth = getAuth(app)
 const DynamicUserRoute = () => {
     const user = useLoaderData()
     console.log(user);
+
+
+    const navigate = useNavigate()
 
 
     const [message, setMessage] = useState()
@@ -37,6 +40,7 @@ const DynamicUserRoute = () => {
             });
         }
         else{
+            navigate('/authentication/forget-password')
             toast.error('Your number not found');
         }
     }
@@ -49,7 +53,7 @@ const DynamicUserRoute = () => {
 
             <form className='my-10' onSubmit={handleSubmit}>
                 <p>Enter your Phone Number</p>
-                <input type="text" name="number" placeholder='Phone Number' className='h-12 px-2 rounded-l-lg' />
+                <input type="text" name="number" placeholder='Phone Number' className='h-12 px-2 rounded-l-lg focus:outline-none' />
                 <button type="submit" className='btn bg-gradient-to-l hover:bg-gradient-to-r from-violet-500 to-fuchsia-500 border-0 h-12 rounded-none rounded-r-lg'>Send</button>
 
             </form>
@@ -58,7 +62,7 @@ const DynamicUserRoute = () => {
                 }
             </div>
 
-            <Link className='btn bg-gradient-to-l hover:bg-gradient-to-r from-violet-500 to-fuchsia-500 border-0 h-12 flex justify-start w-24' to='/login'>
+            <Link className='btn bg-gradient-to-l hover:bg-gradient-to-r from-violet-500 to-fuchsia-500 border-0 h-12 flex justify-start w-24' to='/authentication/forget-password'>
             Go Back
             </Link>
 

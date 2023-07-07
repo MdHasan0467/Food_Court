@@ -2,7 +2,6 @@ import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import About from '../../Pages/About/About';
 import AddProduct from '../../Pages/AddProduct/AddProduct';
-import CategoryDetails from '../../Pages/CategoryDetails/CategoryDetails';
 import AdminDetails from '../../Pages/Dashboard/AdminDetails/AdminDetails';
 import Profile from '../../Pages/Dashboard/Profile/Profile';
 import UpdateFoodCourt from '../../Pages/Dashboard/UpdateFoodCourt/UpdateFoodCourt';
@@ -21,6 +20,8 @@ import AllProducts from '../../Pages/Dashboard/AllProducts/AllProducts';
 import MyProducts from '../../Pages/MyProducts/MyProducts';
 import ForgetPassword from '../../Pages/ForgetPassword/ForgetPassword';
 import DynamicUserRoute from '../../Pages/ForgetPassword/DynamicUserRoute';
+import CategoryDetails from '../../Pages/CategoryDetails/CategoryDetails';
+import Authentication from '../Layouts/Authentication/Authentication';
 
 const Route = () => {
     const router = createBrowserRouter(
@@ -58,7 +59,7 @@ const Route = () => {
             
                 {
                     path: '/:category',  element: <CategoryDetails></CategoryDetails>,
-                    loader: ({ params }) => fetch(`https://food-court-server-three.vercel.app/category/${params.category}`)
+                    loader: ({ params }) => fetch(`https://food-court-server-three.vercel.app/products/${params.category}`)
                 },
                 
                 {
@@ -75,7 +76,7 @@ const Route = () => {
                 },
                 {
                     path: '/orders/payment/:id', element: <Payment></Payment>,
-                    loader: ({params}) => fetch(`https://food-court-server-three.vercel.app/orders/${params.id}`)
+                    loader: ({params}) => fetch(`http://localhost:5000/orders/${params.id}`)
                 },
                 
 
@@ -87,10 +88,6 @@ const Route = () => {
 
 
 
-        {
-            path: '/user/:email',  element: <DynamicUserRoute />,
-            loader: ({ params }) => fetch(`https://food-court-server-three.vercel.app/user/${params.email}`)
-        },
 
 
 
@@ -132,7 +129,7 @@ const Route = () => {
                 },
                 {
                     path: '/dashboard/orders/payment/:id', element: <Payment></Payment>,
-                    loader: ({params}) => fetch(`https://food-court-server-three.vercel.app/orders/${params.id}`)
+                    loader: ({params}) => fetch(`http://localhost:5000/orders/${params.id}`)
                 },
                 {
                     path: '/dashboard/add-product',   element:<AddProduct></AddProduct>
@@ -155,15 +152,25 @@ const Route = () => {
 
         // * Authentication
         {
-            path: '/login',  element:<Login></Login>
+            path: '/authentication',  element:<Authentication />,
+            children : [
+                {
+                    path: '/authentication/login',  element:<Login></Login>
+                },
+                {
+                    path: '/authentication/register',   element:<Registration></Registration>
+                },
+                {
+                    path: '/authentication/forget-password',   element:<ForgetPassword />
+                },
+        
+                {
+                    path: '/authentication/user/:email',  element: <DynamicUserRoute />,
+                    loader: ({ params }) => fetch(`https://food-court-server-three.vercel.app/user/${params.email}`)
+                },
+            ]
         },
-        {
-            path: '/register',   element:<Registration></Registration>
-        },
-        {
-            path: '/forget-password',   element:<ForgetPassword />
-        },
-
+        
 
 
 

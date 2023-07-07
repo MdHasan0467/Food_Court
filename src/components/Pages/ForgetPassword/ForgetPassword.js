@@ -39,7 +39,7 @@ const ForgetPassword = () => {
             <h1>Forget Password</h1>
             <form className='my-10'>
                 <p>Find Your Account By Email</p>
-                <input onChange={handleFilter} type="email" name="" placeholder='email' className='h-12 px-2 rounded-l-lg' />
+                <input onChange={handleFilter} type="email" name="" placeholder='email' className='h-12 px-2 rounded-l-lg focus:outline-none' />
                 <button type="submit" className='btn bg-gradient-to-l hover:bg-gradient-to-r from-violet-500 to-fuchsia-500 border-0 h-12 rounded-none rounded-r-lg'>Search</button>
             </form>
 
@@ -61,7 +61,7 @@ const ForgetPassword = () => {
                 
 
 
-            <Link className='btn bg-gradient-to-l hover:bg-gradient-to-r from-violet-500 to-fuchsia-500 border-0 h-12 flex justify-start w-24' to='/login'>
+            <Link className='btn bg-gradient-to-l hover:bg-gradient-to-r from-violet-500 to-fuchsia-500 border-0 h-12 flex justify-start w-24' to='/authentication/login'>
             Go Back
             </Link>
 

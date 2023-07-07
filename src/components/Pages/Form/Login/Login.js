@@ -4,6 +4,7 @@ import { BsEyeFill, BsEyeSlashFill } from 'react-icons/bs';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
+import image from "../../../../Assets/Images/loginFood.png"
 
 const Login = () => {
 
@@ -54,7 +55,7 @@ const Login = () => {
         <div className="hero min-h-screen bg-base-200">
         <div className="hero-content ">
           <div className="text-center">
-            <img className='h-96 shadow-2xl rounded-2xl' src="loginFood.png" alt="" />
+            <img className='h-96 shadow-2xl rounded-2xl' src={image} alt="" />
           </div>
             
             <div className="card border-b-4 border-b-rose-400 flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -85,7 +86,7 @@ const Login = () => {
              </span>
                 </div>
                 <label className="label">
-                  <Link to='/forget-password' className="label-text-alt link link-hover hover:underline text-start">Forgot password?</Link>
+                  <Link to='/authentication/forget-password' className="label-text-alt link link-hover hover:underline text-start">Forgot password?</Link>
                 </label>
               </div>
               
@@ -97,7 +98,7 @@ const Login = () => {
                
               <label className="label">
                <p  className="label-text-alt link link-hover hover:underline text-start">
-                   <Link to='/register'>create a new account</Link>
+                   <Link to='/authentication/register'>create a new account</Link>
                </p>
               </label>
              </div>

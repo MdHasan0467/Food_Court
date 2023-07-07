@@ -35,7 +35,7 @@ const LargeNavBar = () => {
     //!  Logout
     const handleLogOut = () => {
         logOut()
-        navigate('/login')
+        navigate('/authentication/login')
         toast.error('LogOut')
     }
 
@@ -61,13 +61,22 @@ const LargeNavBar = () => {
 					<Link  className=' ml-5 nav hover:text-gray-800' to='/about'>
 						About
 					</Link>
-					<Link  className=' ml-5 nav hover:text-gray-800' to='/dashboard'>
+					{
+            user?.email ?
+            <Link  className=' ml-5 nav hover:text-gray-800' to='/dashboard'>
           Dashboard
 					</Link>
+          :
+            <Link  className=' ml-5 nav hover:text-gray-800' to='/authentication/login'>
+          Login
+					</Link>
+          }
         </div>
                     
 
-				<div className='navbar-end flex'>
+				{
+          user?.uid &&
+          <div className='navbar-end flex'>
         <Link title='My Orders' className=' ml-5 nav hover:text-gray-800' to='/Orders'>
           <BsFillCartCheckFill></BsFillCartCheckFill>
         </Link>
@@ -76,6 +85,7 @@ const LargeNavBar = () => {
           <BsFillSuitHeartFill></BsFillSuitHeartFill>
         </Link>
           </div>
+        }
           
 				<div className='navbar-end flex'>
         {user?.uid &&

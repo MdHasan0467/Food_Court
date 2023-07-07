@@ -88,10 +88,10 @@ const CategoryWiseData = () => {
             axios
             .get('https://food-court-server-three.vercel.app/category/Desert')
             .then((data) => {
-              // console.log('Desert',data);
+              console.log('Desert',data);
               if (data.data !== undefined) {
                 // console.log(typeof data.data);
-                // console.log(data.data);
+                console.log(data.data?.result[0]);
                 setGetCategoryDesert(data.data?.result[0]);
               }
             });
@@ -102,6 +102,8 @@ const CategoryWiseData = () => {
                   Aos.init();
               },[])
 
+
+              console.log('getCategoryDesert', getCategoryDesert);
     return (
         <div>
           <div  data-aos="fade-up" className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 justify-center">

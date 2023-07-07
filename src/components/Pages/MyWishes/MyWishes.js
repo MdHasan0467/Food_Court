@@ -84,48 +84,37 @@ console.log(wishList);
 
 	//! ================== Order ==================
 
-			const handleOrder = (id) => {
-		  
-			  //* Make a request for data with a given ID
-			 
-				axios
-				  .get(`https://food-court-server-three.vercel.app/product-wish/${id}`)
-					.then((data) => {
-					  console.log(data);
-					if (data.data !== undefined) {
-					  console.log(data.data);
-		  
-					  const addedOrder = {
-						name : logUser?.name,
-						email: logUser?.email,
-						image : data.data.image,
-						title : data.data.title,
-						price : data.data.price,
-						category : data.data.category,
-						description: data.data.description,
-					  }
-		  
-		  
-		  
-		  
-				//* ================== Data post ==================
-		  
-				fetch('https://food-court-server-three.vercel.app/order-product', {
-				  method: 'POST',
-				  headers: {
-					'content-type': 'application/json',
-				  },
-				  body: JSON.stringify(addedOrder),
-				})
-				  .then((res) => res.json())
-				  .then((result) => {
-					navigate('/orders')
-					toast.success(`Successfully added your new order ${data.data.title}`);
-				  });
-					}
-					
-				  })
-				  .catch(err => toast.error(err.message))
+			const handleOrder = (data) => {
+
+				console.log(data);
+				
+				const addedOrder = {
+					name : logUser?.name,
+					email: logUser?.email,
+					image : data?.image,
+					title : data?.title,
+					price : data?.price,
+					category : data?.category,
+					description: data?.description,
+				}
+  
+  
+  console.log(addedOrder);
+  
+		//* ================== Data post ==================
+  
+		fetch('https://food-court-server-three.vercel.app/order-product', {
+		  method: 'POST',
+		  headers: {
+			'content-type': 'application/json',
+		  },
+		  body: JSON.stringify(addedOrder),
+		})
+		  .then((res) => res.json())
+		  .then((result) => {
+			navigate('/orders')
+			toast.success(`Successfully added your new order ${data?.title}`);
+		  });
 			 
 		  
 			  
@@ -167,7 +156,7 @@ console.log(wishList);
 					
 					<div className="card-actions justify-end">
 
-					<button onClick={() => handleOrder(data?._id)} className='flex  bg-fuchsia-500 hover:bg-green-500 border-0 btn'>
+					<button onClick={() => handleOrder(data)} className='flex  bg-fuchsia-500 hover:bg-green-500 border-0 btn'>
 						 <span className='w-auto my-auto mx-2'><BsFillCartCheckFill/></span> <span>Buy Now</span>
 					</button>
 
