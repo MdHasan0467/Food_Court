@@ -42,6 +42,7 @@ const Category = () => {
         <div className='blurEffect text-start pb-10'>
 
 
+
         {/* Sorted Data Load */}
           <div>
               {
